@@ -1,0 +1,30 @@
+PODS:
+  - FluentIcons (1.1.212):
+    - FluentIcons/Assets (= 1.1.212)
+    - FluentIcons/Code (= 1.1.212)
+    - FluentIcons/RemovalScript (= 1.1.212)
+  - FluentIcons/Assets (1.1.212)
+  - FluentIcons/Code (1.1.212)
+  - FluentIcons/RemovalScript (1.1.212)
+  - R.swift (7.3.2)
+  - RAMAnimatedTabBarController (5.2.0)
+
+DEPENDENCIES:
+  - FluentIcons
+  - R.swift
+  - RAMAnimatedTabBarController
+
+SPEC REPOS:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - FluentIcons
+    - R.swift
+    - RAMAnimatedTabBarController
+
+SPEC CHECKSUMS:
+  FluentIcons: 48b26bd448aac825304faa01fe3d29b8c305ab7a
+  R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
+  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+
+PODFILE CHECKSUM: d5d5fbe6f5756f3cb0b0d4bae188ec00028f8cb2
+
+COCOAPODS: 1.15.2
