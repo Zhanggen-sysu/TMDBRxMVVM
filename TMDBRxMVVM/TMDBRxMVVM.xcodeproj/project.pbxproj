@@ -343,7 +343,6 @@
 				27A91E9F81072BA56D6A4F95 /* Pods-TMDBRxMVVMTests.debug.xcconfig */,
 				00869FEE3B19296552330BE6 /* Pods-TMDBRxMVVMTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -355,6 +354,7 @@
 			buildConfigurationList = 3D79EC5F2C2EC0D100CEA938 /* Build configuration list for PBXNativeTarget "TMDBRxMVVM" */;
 			buildPhases = (
 				56029066E1FFCDE4AC27B8BD /* [CP] Check Pods Manifest.lock */,
+				3D79EC992C2ECA4C00CEA938 /* ShellScript */,
 				3D79EC312C2EC0CF00CEA938 /* Sources */,
 				3D79EC322C2EC0CF00CEA938 /* Frameworks */,
 				3D79EC332C2EC0CF00CEA938 /* Resources */,
@@ -493,6 +493,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMDBRxMVVM-TMDBRxMVVMUITests/Pods-TMDBRxMVVM-TMDBRxMVVMUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3D79EC992C2ECA4C00CEA938 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
 		424D83204B76B80AF7F0DA87 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
