@@ -7,6 +7,6 @@
 
 import UIKit
 
-class TRMDiscoverVC {
+class TRMDiscoverVC: BaseViewController {
     
 }

@@ -7,6 +7,6 @@
 
 import UIKit
 
-class TRMSearchVC {
+class TRMSearchVC: BaseViewController {
     
 }

@@ -7,6 +7,6 @@
 
 import UIKit
 
-class TRMHomeVC {
+class TRMHomeVC: BaseViewController {
     
 }

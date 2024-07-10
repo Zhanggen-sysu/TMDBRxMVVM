@@ -9,8 +9,17 @@ target 'TMDBRxMVVM' do
 
   # Pods for TMDBRxMVVM
 
+  # Networking
+  pod 'Moya/RxSwift'
+  pod 'RxReachability'
+
+  # RxSwift
+  pod 'RxSwift'
+  pod 'RxCocoa'
+
   # UI
   pod 'RAMAnimatedTabBarController'
+
   # Resource
   pod 'R.swift'
   pod "FluentIcons"

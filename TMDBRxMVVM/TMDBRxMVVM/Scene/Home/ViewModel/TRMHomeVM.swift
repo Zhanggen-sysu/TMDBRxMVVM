@@ -7,6 +7,18 @@
 
 import Foundation
 
-class TRMHomeVM {
+class TRMHomeVM : BaseViewModel, ViewModelType {
+    
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
+    
+    func transform(_ input: Input) -> Output {
+        return Output()
+    }
     
 }

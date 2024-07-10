@@ -15,8 +15,6 @@
 		3D79EC5C2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC5B2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift */; };
 		3D79EC8A2C2EC10500CEA938 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC682C2EC10500CEA938 /* BaseViewModel.swift */; };
 		3D79EC8C2C2EC10500CEA938 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC6B2C2EC10500CEA938 /* AppDelegate.swift */; };
-		3D79EC8D2C2EC10500CEA938 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC6C2C2EC10500CEA938 /* Application.swift */; };
-		3D79EC8E2C2EC10500CEA938 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC6D2C2EC10500CEA938 /* Navigator.swift */; };
 		3D79EC8F2C2EC10500CEA938 /* TRMAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC6F2C2EC10500CEA938 /* TRMAccountVC.swift */; };
 		3D79EC902C2EC10500CEA938 /* TRMAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC712C2EC10500CEA938 /* TRMAccountVM.swift */; };
 		3D79EC912C2EC10500CEA938 /* TRMDiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC742C2EC10500CEA938 /* TRMDiscoverVC.swift */; };
@@ -27,6 +25,15 @@
 		3D79EC962C2EC10500CEA938 /* TRMSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC812C2EC10500CEA938 /* TRMSearchVM.swift */; };
 		3D79EC972C2EC10500CEA938 /* TRMTabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC842C2EC10500CEA938 /* TRMTabsVC.swift */; };
 		3D79EC982C2EC10500CEA938 /* TRMTabsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC862C2EC10500CEA938 /* TRMTabsVM.swift */; };
+		3DA1AEAD2C3562DD00CBF933 /* TRMTmdbApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA1AEAC2C3562DD00CBF933 /* TRMTmdbApi.swift */; };
+		3DA1AEAF2C35640700CBF933 /* TRMConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA1AEAE2C35640700CBF933 /* TRMConfig.swift */; };
+		3DA1AEB32C364E8100CBF933 /* TRMTrendindRsp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA1AEB22C364E8100CBF933 /* TRMTrendindRsp.swift */; };
+		3DA40D452C3BFEEF001B6C55 /* APIServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA40D442C3BFEEF001B6C55 /* APIServiceType.swift */; };
+		3DA40D472C3BFFA9001B6C55 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA40D462C3BFFA9001B6C55 /* NetworkingService.swift */; };
+		3DA40D492C3C06ED001B6C55 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA40D482C3C06ED001B6C55 /* ReachabilityManager.swift */; };
+		3DA40D5F2C3E3481001B6C55 /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA40D5E2C3E3481001B6C55 /* AppNavigator.swift */; };
+		3DA40D612C3E8648001B6C55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA40D602C3E8648001B6C55 /* SceneDelegate.swift */; };
+		3DE90F4F2C32494700A7CB70 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE90F4E2C32494700A7CB70 /* BaseViewController.swift */; };
 		CB249B54E3167A3A13D05AF6 /* Pods_TMDBRxMVVMTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329DC99F252D79FBFFA91E41 /* Pods_TMDBRxMVVMTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +71,6 @@
 		3D79EC5B2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRxMVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3D79EC682C2EC10500CEA938 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		3D79EC6B2C2EC10500CEA938 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D79EC6C2C2EC10500CEA938 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		3D79EC6D2C2EC10500CEA938 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		3D79EC6F2C2EC10500CEA938 /* TRMAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMAccountVC.swift; sourceTree = "<group>"; };
 		3D79EC712C2EC10500CEA938 /* TRMAccountVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMAccountVM.swift; sourceTree = "<group>"; };
 		3D79EC742C2EC10500CEA938 /* TRMDiscoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMDiscoverVC.swift; sourceTree = "<group>"; };
@@ -76,6 +81,15 @@
 		3D79EC812C2EC10500CEA938 /* TRMSearchVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMSearchVM.swift; sourceTree = "<group>"; };
 		3D79EC842C2EC10500CEA938 /* TRMTabsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVC.swift; sourceTree = "<group>"; };
 		3D79EC862C2EC10500CEA938 /* TRMTabsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVM.swift; sourceTree = "<group>"; };
+		3DA1AEAC2C3562DD00CBF933 /* TRMTmdbApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTmdbApi.swift; sourceTree = "<group>"; };
+		3DA1AEAE2C35640700CBF933 /* TRMConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMConfig.swift; sourceTree = "<group>"; };
+		3DA1AEB22C364E8100CBF933 /* TRMTrendindRsp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTrendindRsp.swift; sourceTree = "<group>"; };
+		3DA40D442C3BFEEF001B6C55 /* APIServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceType.swift; sourceTree = "<group>"; };
+		3DA40D462C3BFFA9001B6C55 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		3DA40D482C3C06ED001B6C55 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		3DA40D5E2C3E3481001B6C55 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
+		3DA40D602C3E8648001B6C55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3DE90F4E2C32494700A7CB70 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9569F0284D4D8EBC8B4447E5 /* Pods-TMDBRxMVVM-TMDBRxMVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBRxMVVM-TMDBRxMVVMUITests.release.xcconfig"; path = "Target Support Files/Pods-TMDBRxMVVM-TMDBRxMVVMUITests/Pods-TMDBRxMVVM-TMDBRxMVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DFEF64867BCF3257E6F5C5ED /* Pods_TMDBRxMVVM_TMDBRxMVVMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDBRxMVVM_TMDBRxMVVMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E1249C10CB0CA9A1BAF617 /* Pods-TMDBRxMVVM-TMDBRxMVVMUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBRxMVVM-TMDBRxMVVMUITests.debug.xcconfig"; path = "Target Support Files/Pods-TMDBRxMVVM-TMDBRxMVVMUITests/Pods-TMDBRxMVVM-TMDBRxMVVMUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,9 +150,9 @@
 			children = (
 				3D79EC6E2C2EC10500CEA938 /* Application */,
 				3D79EC692C2EC10500CEA938 /* Common */,
+				3DA1AEA32C35614400CBF933 /* Network */,
+				3DA1AEA42C35615900CBF933 /* Resource */,
 				3D79EC892C2EC10500CEA938 /* Scene */,
-				3D79EC412C2EC0D100CEA938 /* Assets.xcassets */,
-				3D79EC462C2EC0D100CEA938 /* Info.plist */,
 			);
 			path = TMDBRxMVVM;
 			sourceTree = "<group>";
@@ -163,7 +177,10 @@
 		3D79EC692C2EC10500CEA938 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3DA40D5E2C3E3481001B6C55 /* AppNavigator.swift */,
+				3DE90F4E2C32494700A7CB70 /* BaseViewController.swift */,
 				3D79EC682C2EC10500CEA938 /* BaseViewModel.swift */,
+				3DA1AEAE2C35640700CBF933 /* TRMConfig.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -172,8 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				3D79EC6B2C2EC10500CEA938 /* AppDelegate.swift */,
-				3D79EC6C2C2EC10500CEA938 /* Application.swift */,
-				3D79EC6D2C2EC10500CEA938 /* Navigator.swift */,
+				3DA40D602C3E8648001B6C55 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -255,6 +271,7 @@
 		3D79EC7E2C2EC10500CEA938 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3DA1AEB12C3646FA00CBF933 /* Model */,
 				3D79EC7B2C2EC10500CEA938 /* Controller */,
 				3D79EC7D2C2EC10500CEA938 /* ViewModel */,
 			);
@@ -321,6 +338,34 @@
 				3D79EC882C2EC10500CEA938 /* TRMTabs */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		3DA1AEA32C35614400CBF933 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3DA40D442C3BFEEF001B6C55 /* APIServiceType.swift */,
+				3DA40D462C3BFFA9001B6C55 /* NetworkingService.swift */,
+				3DA40D482C3C06ED001B6C55 /* ReachabilityManager.swift */,
+				3DA1AEAC2C3562DD00CBF933 /* TRMTmdbApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3DA1AEA42C35615900CBF933 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3D79EC412C2EC0D100CEA938 /* Assets.xcassets */,
+				3D79EC462C2EC0D100CEA938 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3DA1AEB12C3646FA00CBF933 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DA1AEB22C364E8100CBF933 /* TRMTrendindRsp.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7A0F9D6B056A8006127CFAD6 /* Frameworks */ = {
@@ -606,17 +651,24 @@
 				3D79EC902C2EC10500CEA938 /* TRMAccountVM.swift in Sources */,
 				3D79EC8C2C2EC10500CEA938 /* AppDelegate.swift in Sources */,
 				3D79EC952C2EC10500CEA938 /* TRMSearchVC.swift in Sources */,
-				3D79EC8D2C2EC10500CEA938 /* Application.swift in Sources */,
+				3DA40D452C3BFEEF001B6C55 /* APIServiceType.swift in Sources */,
+				3DA40D472C3BFFA9001B6C55 /* NetworkingService.swift in Sources */,
 				3D79EC982C2EC10500CEA938 /* TRMTabsVM.swift in Sources */,
+				3DE90F4F2C32494700A7CB70 /* BaseViewController.swift in Sources */,
 				3D79EC942C2EC10500CEA938 /* TRMHomeVM.swift in Sources */,
+				3DA40D612C3E8648001B6C55 /* SceneDelegate.swift in Sources */,
 				3D79EC972C2EC10500CEA938 /* TRMTabsVC.swift in Sources */,
 				3D79EC8A2C2EC10500CEA938 /* BaseViewModel.swift in Sources */,
 				3D79EC962C2EC10500CEA938 /* TRMSearchVM.swift in Sources */,
+				3DA1AEAD2C3562DD00CBF933 /* TRMTmdbApi.swift in Sources */,
+				3DA1AEAF2C35640700CBF933 /* TRMConfig.swift in Sources */,
+				3DA40D492C3C06ED001B6C55 /* ReachabilityManager.swift in Sources */,
+				3DA40D5F2C3E3481001B6C55 /* AppNavigator.swift in Sources */,
 				3D79EC932C2EC10500CEA938 /* TRMHomeVC.swift in Sources */,
 				3D79EC8F2C2EC10500CEA938 /* TRMAccountVC.swift in Sources */,
 				3D79EC922C2EC10500CEA938 /* TRMDiscoverVM.swift in Sources */,
-				3D79EC8E2C2EC10500CEA938 /* Navigator.swift in Sources */,
 				3D79EC912C2EC10500CEA938 /* TRMDiscoverVC.swift in Sources */,
+				3DA1AEB32C364E8100CBF933 /* TRMTrendindRsp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

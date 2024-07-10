@@ -7,6 +7,17 @@
 
 import Foundation
 
-class TRMDiscoverVM {
+class TRMDiscoverVM: BaseViewModel, ViewModelType {
+    
+    struct Input {
+        
+    }
+    struct Output {
+        
+    }
+    
+    func transform(_ input: Input) -> Output {
+        return Output()
+    }
     
 }

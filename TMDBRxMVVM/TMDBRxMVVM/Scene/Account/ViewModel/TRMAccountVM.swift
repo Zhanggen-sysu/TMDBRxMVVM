@@ -7,6 +7,6 @@
 
 import Foundation
 
-class TRMAccountVM {
+class TRMAccountVM: BaseViewModel {
     
 }

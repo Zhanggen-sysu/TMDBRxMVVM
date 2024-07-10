@@ -7,6 +7,6 @@
 
 import UIKit
 
-class TRMAccountVC {
+class TRMAccountVC: BaseViewController {
     
 }
