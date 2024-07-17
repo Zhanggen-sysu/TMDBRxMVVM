@@ -45,6 +45,11 @@ class TRMHomeVC: BaseViewController {
             .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
         
+        output.error.drive(onNext: { error in
+            print("Error: \(error.localizedDescription)")
+        })
+        .disposed(by: disposeBag)
+        
         output.trmTrendingRsp.drive(onNext: { [weak self] items in
             guard let self = self else { return }
             self.model.insert(items, at: 0)
