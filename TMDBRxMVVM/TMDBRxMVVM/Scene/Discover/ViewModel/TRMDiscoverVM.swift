@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TRMDiscoverVM: BaseViewModel, ViewModelType {
+class TRMDiscoverVM: ViewModelType {
     
     struct Input {
         

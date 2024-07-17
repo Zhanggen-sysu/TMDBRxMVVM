@@ -43,6 +43,7 @@ extension TRMTmdbApi: TargetType {
     
     var parameters: [String: Any]? {
         var params: [String: Any] = [:]
+        params["api_key"] = TRMConfig.TRMApiKey.tmdb.apiKey
         switch self {
         case .trending(_, _, let language):
             params["language"] = language

@@ -6,6 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+let screenWidth = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
 
 struct TRMConfig {
     
@@ -16,11 +20,14 @@ struct TRMConfig {
     
     enum TRMApiKey {
         case tmdb
+        case marvel
         
         var apiKey: String {
             switch self {
             case .tmdb:
                 return "748c16b2d0a067ab5e9055e41fc2754b"
+            case .marvel:
+                return ""
             }
         }
     }
@@ -35,5 +42,5 @@ enum TRMMediaType: String, Codable {
 }
 
 enum TRMTimeWindow: String {
-    case day, weak
+    case day, week
 }

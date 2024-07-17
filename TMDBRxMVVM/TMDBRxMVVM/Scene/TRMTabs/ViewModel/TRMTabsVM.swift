@@ -11,13 +11,13 @@ import RxCocoa
 import FluentIcons
 
 struct TRMTabsItem {
-    let viewModel: BaseViewModel
+    let viewModel: any ViewModelType
     let title: String
     let icon: FluentIcon
     let selectedIcon: FluentIcon
 }
 
-class TRMTabsVM: BaseViewModel, ViewModelType {
+class TRMTabsVM: ViewModelType {
     
     struct Input {
         

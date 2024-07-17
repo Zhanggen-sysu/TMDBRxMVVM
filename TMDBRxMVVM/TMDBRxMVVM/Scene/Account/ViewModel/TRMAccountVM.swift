@@ -7,6 +7,16 @@
 
 import Foundation
 
-class TRMAccountVM: BaseViewModel {
+class TRMAccountVM: ViewModelType {
+    struct Input {
+        
+    }
     
+    struct Output {
+        
+    }
+    
+    func transform(_ input: Input) -> Output {
+        return Output()
+    }
 }

@@ -14,14 +14,20 @@ enum AppDestination {
 
 class AppNavigator {
     
+    static let shared = AppNavigator()
     
     let navigationController: UINavigationController
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    private init() {
+        let tabsVM = TRMTabsVM()
+        let tabsVC = TRMTabsVC(viewModel: tabsVM)
+        navigationController = UINavigationController(rootViewController: tabsVC)
     }
     
     func navigate(to destination: AppDestination) {
-        
+        switch destination {
+        case .tabs(let viewModel):
+            navigationController.popToRootViewController(animated: true)
+        }
     }
 }

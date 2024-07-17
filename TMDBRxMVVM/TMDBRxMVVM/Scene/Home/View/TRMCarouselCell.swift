@@ -1,0 +1,130 @@
+//
+//  TRMCarouselCell.swift
+//  TMDBRxMVVM
+//
+//  Created by GenZhang on 2024/7/15.
+//
+
+import UIKit
+import SnapKit
+import RxSwift
+import RxCocoa
+import RxDataSources
+
+class TRMCarouselCell : BaseTableViewCell {
+    
+    private var timerDisposable: Disposable?
+    private var model: [TRMTrendingItem] = []
+    
+    deinit {
+        timerDisposable?.disposed(by: disposeBag)
+    }
+    
+    override func addSubviews() {
+        contentView.addSubview(collectionView)
+        contentView.addSubview(pageControl)
+    }
+    
+    override func defineLayout() {
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(contentView)
+        }
+        pageControl.snp.makeConstraints { make in
+            make.bottom.equalTo(contentView).offset(-10)
+            make.centerX.equalTo(contentView)
+        }
+    }
+    
+    override func bindModel(model: any Codable) {
+        guard let model = model as? [TRMTrendingItem] else { return }
+        self.model = model
+        pageControl.numberOfPages = model.count
+        pageControl.currentPage = 0
+        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.setContentOffset(CGPoint(x: screenWidth, y: 0), animated: false)
+        }
+        startCarousel()
+    }
+    
+    private func startCarousel() {
+        timerDisposable?.dispose()
+        timerDisposable = Observable<Int>.interval(.seconds(3), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self, model.count > 0 else { return }
+                self.collectionView .scrollToItem(at: IndexPath(item: Int(self.collectionView.contentOffset.x / screenWidth) + 1, section: 0), at: UICollectionView.ScrollPosition.left, animated: true)
+            })
+        timerDisposable?.disposed(by: disposeBag)
+    }
+    
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: screenWidth, height: ceil(screenWidth / 2 * 3))
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.isPagingEnabled = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(TRMCarouselItemCell.self, forCellWithReuseIdentifier: TRMCarouselItemCell.reuseID)
+        return collectionView
+    }()
+    
+    lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        return pageControl
+    }()
+}
+
+extension TRMCarouselCell : UIScrollViewDelegate
+{
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.scrollViewDidEndScrollingAnimation(scrollView)
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.x == 0) {
+            scrollView.contentOffset = CGPoint(x: CGFloat(model.count) * screenWidth, y: 0)
+            pageControl.currentPage = model.count
+        } else if (scrollView.contentOffset.x == CGFloat(model.count + 1) * screenWidth) {
+            scrollView.contentOffset = CGPoint(x: screenWidth, y: 0)
+            pageControl.currentPage = 0
+        } else {
+            pageControl.currentPage = Int(scrollView.contentOffset.x / screenWidth) - 1
+        }
+    }
+}
+
+extension TRMCarouselCell : UICollectionViewDelegate
+{
+    
+}
+
+extension TRMCarouselCell : UICollectionViewDataSource
+{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if model.count <= 0 {
+            return 0
+        }
+        return model.count + 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TRMCarouselItemCell.reuseID, for: indexPath) as! TRMCarouselItemCell
+        if (indexPath.row == 0) {
+            cell.bindModel(model: model.last)
+        } else if (indexPath.row == model.count+1) {
+            cell.bindModel(model: model.first)
+        } else {
+            cell.bindModel(model: model[indexPath.row-1])
+        }
+        return cell
+    }
+}

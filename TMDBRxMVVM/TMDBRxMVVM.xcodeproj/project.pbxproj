@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		2291776A625B98966AAD0B52 /* Pods_TMDBRxMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1FBC44C97C5EA75FDE0522 /* Pods_TMDBRxMVVM.framework */; };
 		3A82B8065A100874B24FD738 /* Pods_TMDBRxMVVM_TMDBRxMVVMUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEF64867BCF3257E6F5C5ED /* Pods_TMDBRxMVVM_TMDBRxMVVMUITests.framework */; };
-		3D79EC422C2EC0D100CEA938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D79EC412C2EC0D100CEA938 /* Assets.xcassets */; };
 		3D79EC502C2EC0D100CEA938 /* TMDBRxMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC4F2C2EC0D100CEA938 /* TMDBRxMVVMTests.swift */; };
 		3D79EC5A2C2EC0D100CEA938 /* TMDBRxMVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC592C2EC0D100CEA938 /* TMDBRxMVVMUITests.swift */; };
 		3D79EC5C2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC5B2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift */; };
-		3D79EC8A2C2EC10500CEA938 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC682C2EC10500CEA938 /* BaseViewModel.swift */; };
+		3D79EC8A2C2EC10500CEA938 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC682C2EC10500CEA938 /* ViewModelType.swift */; };
 		3D79EC8C2C2EC10500CEA938 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC6B2C2EC10500CEA938 /* AppDelegate.swift */; };
 		3D79EC8F2C2EC10500CEA938 /* TRMAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC6F2C2EC10500CEA938 /* TRMAccountVC.swift */; };
 		3D79EC902C2EC10500CEA938 /* TRMAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC712C2EC10500CEA938 /* TRMAccountVM.swift */; };
@@ -25,6 +24,14 @@
 		3D79EC962C2EC10500CEA938 /* TRMSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC812C2EC10500CEA938 /* TRMSearchVM.swift */; };
 		3D79EC972C2EC10500CEA938 /* TRMTabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC842C2EC10500CEA938 /* TRMTabsVC.swift */; };
 		3D79EC982C2EC10500CEA938 /* TRMTabsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC862C2EC10500CEA938 /* TRMTabsVM.swift */; };
+		3D84DFB02C44C9220084CF05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D79EC412C2EC0D100CEA938 /* Assets.xcassets */; };
+		3D84DFCC2C44FB7C0084CF05 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFC72C44FB7C0084CF05 /* ActivityIndicator.swift */; };
+		3D84DFCD2C44FB7C0084CF05 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFC92C44FB7C0084CF05 /* ErrorTracker.swift */; };
+		3D84DFCF2C44FE530084CF05 /* TRMTmdbNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFCE2C44FE530084CF05 /* TRMTmdbNetwork.swift */; };
+		3D84DFD22C4506C70084CF05 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFD12C4506C70084CF05 /* BaseTableViewCell.swift */; };
+		3D84DFD42C450AD40084CF05 /* TRMCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFD32C450AD40084CF05 /* TRMCarouselCell.swift */; };
+		3D84DFD62C4513FF0084CF05 /* TRMCarouselItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFD52C4513FF0084CF05 /* TRMCarouselItemCell.swift */; };
+		3D84DFD82C45140F0084CF05 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFD72C45140F0084CF05 /* BaseCollectionViewCell.swift */; };
 		3DA1AEAD2C3562DD00CBF933 /* TRMTmdbApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA1AEAC2C3562DD00CBF933 /* TRMTmdbApi.swift */; };
 		3DA1AEAF2C35640700CBF933 /* TRMConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA1AEAE2C35640700CBF933 /* TRMConfig.swift */; };
 		3DA1AEB32C364E8100CBF933 /* TRMTrendindRsp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA1AEB22C364E8100CBF933 /* TRMTrendindRsp.swift */; };
@@ -69,7 +76,7 @@
 		3D79EC552C2EC0D100CEA938 /* TMDBRxMVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBRxMVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D79EC592C2EC0D100CEA938 /* TMDBRxMVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRxMVVMUITests.swift; sourceTree = "<group>"; };
 		3D79EC5B2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRxMVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3D79EC682C2EC10500CEA938 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		3D79EC682C2EC10500CEA938 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		3D79EC6B2C2EC10500CEA938 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D79EC6F2C2EC10500CEA938 /* TRMAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMAccountVC.swift; sourceTree = "<group>"; };
 		3D79EC712C2EC10500CEA938 /* TRMAccountVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMAccountVM.swift; sourceTree = "<group>"; };
@@ -81,6 +88,13 @@
 		3D79EC812C2EC10500CEA938 /* TRMSearchVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMSearchVM.swift; sourceTree = "<group>"; };
 		3D79EC842C2EC10500CEA938 /* TRMTabsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVC.swift; sourceTree = "<group>"; };
 		3D79EC862C2EC10500CEA938 /* TRMTabsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVM.swift; sourceTree = "<group>"; };
+		3D84DFC72C44FB7C0084CF05 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		3D84DFC92C44FB7C0084CF05 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		3D84DFCE2C44FE530084CF05 /* TRMTmdbNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTmdbNetwork.swift; sourceTree = "<group>"; };
+		3D84DFD12C4506C70084CF05 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		3D84DFD32C450AD40084CF05 /* TRMCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMCarouselCell.swift; sourceTree = "<group>"; };
+		3D84DFD52C4513FF0084CF05 /* TRMCarouselItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMCarouselItemCell.swift; sourceTree = "<group>"; };
+		3D84DFD72C45140F0084CF05 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		3DA1AEAC2C3562DD00CBF933 /* TRMTmdbApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTmdbApi.swift; sourceTree = "<group>"; };
 		3DA1AEAE2C35640700CBF933 /* TRMConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMConfig.swift; sourceTree = "<group>"; };
 		3DA1AEB22C364E8100CBF933 /* TRMTrendindRsp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTrendindRsp.swift; sourceTree = "<group>"; };
@@ -153,6 +167,7 @@
 				3DA1AEA32C35614400CBF933 /* Network */,
 				3DA1AEA42C35615900CBF933 /* Resource */,
 				3D79EC892C2EC10500CEA938 /* Scene */,
+				3D84DFCB2C44FB7C0084CF05 /* Third Party */,
 			);
 			path = TMDBRxMVVM;
 			sourceTree = "<group>";
@@ -178,9 +193,11 @@
 			isa = PBXGroup;
 			children = (
 				3DA40D5E2C3E3481001B6C55 /* AppNavigator.swift */,
+				3D84DFD72C45140F0084CF05 /* BaseCollectionViewCell.swift */,
+				3D84DFD12C4506C70084CF05 /* BaseTableViewCell.swift */,
 				3DE90F4E2C32494700A7CB70 /* BaseViewController.swift */,
-				3D79EC682C2EC10500CEA938 /* BaseViewModel.swift */,
 				3DA1AEAE2C35640700CBF933 /* TRMConfig.swift */,
+				3D79EC682C2EC10500CEA938 /* ViewModelType.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -271,6 +288,7 @@
 		3D79EC7E2C2EC10500CEA938 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3D84DFD02C4505D70084CF05 /* View */,
 				3DA1AEB12C3646FA00CBF933 /* Model */,
 				3D79EC7B2C2EC10500CEA938 /* Controller */,
 				3D79EC7D2C2EC10500CEA938 /* ViewModel */,
@@ -340,6 +358,40 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		3D84DFC82C44FB7C0084CF05 /* RxActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				3D84DFC72C44FB7C0084CF05 /* ActivityIndicator.swift */,
+			);
+			path = RxActivityIndicator;
+			sourceTree = "<group>";
+		};
+		3D84DFCA2C44FB7C0084CF05 /* RxErrorTracker */ = {
+			isa = PBXGroup;
+			children = (
+				3D84DFC92C44FB7C0084CF05 /* ErrorTracker.swift */,
+			);
+			path = RxErrorTracker;
+			sourceTree = "<group>";
+		};
+		3D84DFCB2C44FB7C0084CF05 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				3D84DFC82C44FB7C0084CF05 /* RxActivityIndicator */,
+				3D84DFCA2C44FB7C0084CF05 /* RxErrorTracker */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		3D84DFD02C4505D70084CF05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D84DFD32C450AD40084CF05 /* TRMCarouselCell.swift */,
+				3D84DFD52C4513FF0084CF05 /* TRMCarouselItemCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3DA1AEA32C35614400CBF933 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +399,7 @@
 				3DA40D462C3BFFA9001B6C55 /* NetworkingService.swift */,
 				3DA40D482C3C06ED001B6C55 /* ReachabilityManager.swift */,
 				3DA1AEAC2C3562DD00CBF933 /* TRMTmdbApi.swift */,
+				3D84DFCE2C44FE530084CF05 /* TRMTmdbNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -501,7 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D79EC422C2EC0D100CEA938 /* Assets.xcassets in Resources */,
+				3D84DFB02C44C9220084CF05 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +702,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D79EC902C2EC10500CEA938 /* TRMAccountVM.swift in Sources */,
+				3D84DFD82C45140F0084CF05 /* BaseCollectionViewCell.swift in Sources */,
 				3D79EC8C2C2EC10500CEA938 /* AppDelegate.swift in Sources */,
 				3D79EC952C2EC10500CEA938 /* TRMSearchVC.swift in Sources */,
+				3D84DFCF2C44FE530084CF05 /* TRMTmdbNetwork.swift in Sources */,
 				3DA40D452C3BFEEF001B6C55 /* APIServiceType.swift in Sources */,
 				3DA40D472C3BFFA9001B6C55 /* NetworkingService.swift in Sources */,
 				3D79EC982C2EC10500CEA938 /* TRMTabsVM.swift in Sources */,
@@ -658,17 +713,22 @@
 				3D79EC942C2EC10500CEA938 /* TRMHomeVM.swift in Sources */,
 				3DA40D612C3E8648001B6C55 /* SceneDelegate.swift in Sources */,
 				3D79EC972C2EC10500CEA938 /* TRMTabsVC.swift in Sources */,
-				3D79EC8A2C2EC10500CEA938 /* BaseViewModel.swift in Sources */,
+				3D79EC8A2C2EC10500CEA938 /* ViewModelType.swift in Sources */,
 				3D79EC962C2EC10500CEA938 /* TRMSearchVM.swift in Sources */,
+				3D84DFCD2C44FB7C0084CF05 /* ErrorTracker.swift in Sources */,
 				3DA1AEAD2C3562DD00CBF933 /* TRMTmdbApi.swift in Sources */,
 				3DA1AEAF2C35640700CBF933 /* TRMConfig.swift in Sources */,
 				3DA40D492C3C06ED001B6C55 /* ReachabilityManager.swift in Sources */,
+				3D84DFD62C4513FF0084CF05 /* TRMCarouselItemCell.swift in Sources */,
 				3DA40D5F2C3E3481001B6C55 /* AppNavigator.swift in Sources */,
+				3D84DFCC2C44FB7C0084CF05 /* ActivityIndicator.swift in Sources */,
 				3D79EC932C2EC10500CEA938 /* TRMHomeVC.swift in Sources */,
 				3D79EC8F2C2EC10500CEA938 /* TRMAccountVC.swift in Sources */,
+				3D84DFD22C4506C70084CF05 /* BaseTableViewCell.swift in Sources */,
 				3D79EC922C2EC10500CEA938 /* TRMDiscoverVM.swift in Sources */,
 				3D79EC912C2EC10500CEA938 /* TRMDiscoverVC.swift in Sources */,
 				3DA1AEB32C364E8100CBF933 /* TRMTrendindRsp.swift in Sources */,
+				3D84DFD42C450AD40084CF05 /* TRMCarouselCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,11 +893,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q8H2R68RPW;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TMDBRxMVVM/Info.plist;
+				INFOPLIST_FILE = TMDBRxMVVM/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -863,11 +924,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q8H2R68RPW;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TMDBRxMVVM/Info.plist;
+				INFOPLIST_FILE = TMDBRxMVVM/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

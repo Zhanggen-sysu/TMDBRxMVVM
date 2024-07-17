@@ -11,10 +11,10 @@ import RxCocoa
 
 class BaseViewController: UIViewController {
     
-    var viewModel: BaseViewModel?
-    private let disposeBag = DisposeBag()
+    var viewModel: any ViewModelType
+    let disposeBag = DisposeBag()
     
-    init(viewModel: BaseViewModel) {
+    init(viewModel: any ViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,9 +23,16 @@ class BaseViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.white
         addSubviews()
         defineLayout()
         bindViewModel()
@@ -40,29 +47,6 @@ class BaseViewController: UIViewController {
     }
     
     func bindViewModel() {
-        guard let viewModel = viewModel else { return }
         
-        viewModel.isLoading
-            .subscribe { [weak self] loading in
-                guard let self = self else { return }
-                
-                let spinner = UIActivityIndicatorView(style: .medium)
-                spinner.center = self.view.center
-                spinner.hidesWhenStopped = true
-                if loading {
-                    self.view.addSubview(spinner)
-                    spinner.startAnimating()
-                } else {
-                    spinner.removeFromSuperview()
-                }
-            }
-            .disposed(by: disposeBag)
-        
-        viewModel.errorTracker
-            .subscribe { [weak self] errorMessage in
-                guard let self = self else { return }
-                print("Error: \(errorMessage ?? "Unknown Error")")
-            }
-            .disposed(by: disposeBag)
     }
 }
