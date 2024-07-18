@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-import RxDataSources
 
 class TRMCarouselCell : BaseTableViewCell {
     
@@ -35,16 +34,28 @@ class TRMCarouselCell : BaseTableViewCell {
         }
     }
     
-    override func bindModel(model: any Codable) {
-        guard let model = model as? [TRMTrendingItem] else { return }
-        self.model = model
-        pageControl.numberOfPages = model.count
-        pageControl.currentPage = 0
-        collectionView.reloadData()
-        DispatchQueue.main.async {
-            self.collectionView.setContentOffset(CGPoint(x: screenWidth, y: 0), animated: false)
-        }
-        startCarousel()
+    override func bindModel() {
+        
+        dataRelay.asDriverOnErrorJustComplete()
+            .map { value -> [TRMTrendingItem] in
+                if let model = value as? [TRMTrendingItem] {
+                    return model
+                } else {
+                    return []
+                }
+            }
+            .drive { [weak self] model in
+                guard let self = self, model.count > 0 else { return }
+                self.model = model
+                self.pageControl.numberOfPages = model.count
+                self.pageControl.currentPage = 0
+                self.collectionView.reloadData()
+                DispatchQueue.main.async {
+                    self.collectionView.setContentOffset(CGPoint(x: screenWidth, y: 0), animated: false)
+                }
+                startCarousel()
+            }
+            .disposed(by: disposeBag)
     }
     
     private func startCarousel() {
@@ -84,7 +95,7 @@ extension TRMCarouselCell : UIScrollViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.scrollViewDidEndScrollingAnimation(scrollView)
     }
-    
+    // MARK: 在这个代理写才能使手动和自动轮播的index都正常！
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.x == 0) {
             scrollView.contentOffset = CGPoint(x: CGFloat(model.count) * screenWidth, y: 0)
@@ -100,7 +111,9 @@ extension TRMCarouselCell : UIScrollViewDelegate
 
 extension TRMCarouselCell : UICollectionViewDelegate
 {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension TRMCarouselCell : UICollectionViewDataSource
@@ -119,11 +132,11 @@ extension TRMCarouselCell : UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TRMCarouselItemCell.reuseID, for: indexPath) as! TRMCarouselItemCell
         if (indexPath.row == 0) {
-            cell.bindModel(model: model.last)
+            cell.dataRelay.accept(model.last)
         } else if (indexPath.row == model.count+1) {
-            cell.bindModel(model: model.first)
+            cell.dataRelay.accept(model.first)
         } else {
-            cell.bindModel(model: model[indexPath.row-1])
+            cell.dataRelay.accept(model[indexPath.row-1])
         }
         return cell
     }

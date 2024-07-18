@@ -31,7 +31,7 @@ class TRMHomeVM : ViewModelType {
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()
                 .map { (rsp: TRMTrendingRsp) -> [TRMTrendingItem] in
-                    return rsp.results.filter{ $0.mediaType != .person}
+                    return rsp.results!.filter{ $0.mediaType != .person}
                 }
         }
         

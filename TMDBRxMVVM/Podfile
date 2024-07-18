@@ -1,5 +1,3 @@
-source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
-
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '13.0'
 
@@ -10,12 +8,12 @@ target 'TMDBRxMVVM' do
   # Pods for TMDBRxMVVM
 
   # Networking
-  pod 'Moya/RxSwift'
+  pod 'Moya/RxSwift', '~> 15.0'
 
   # RxSwift
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'RxDataSources'
+  pod 'RxSwift', '6.7.1'
+  pod 'RxCocoa', '6.7.1'
+  pod 'RxDataSources', '~> 5.0'
 
   # UI
   pod 'RAMAnimatedTabBarController'

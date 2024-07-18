@@ -12,6 +12,7 @@ import RxCocoa
 class BaseCollectionViewCell: UICollectionViewCell {
     
     let disposeBag = DisposeBag()
+    let dataRelay = BehaviorRelay<Any?>(value: nil)
     
     static var reuseID: String {
         return String(describing: self)
@@ -25,6 +26,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubviews()
         defineLayout()
+        bindModel()
     }
     
     func addSubviews() {
@@ -35,7 +37,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func bindModel(model: Codable) {
+    func bindModel() {
         
     }
 }

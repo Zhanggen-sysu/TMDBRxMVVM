@@ -6,14 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SnapKit
 import Kingfisher
 
 class TRMCarouselItemCell : BaseCollectionViewCell {
-    
-    lazy var imageView: UIImageView = {
-        return UIImageView()
-    }()
     
     override func addSubviews() {
         contentView.addSubview(imageView)
@@ -25,9 +23,22 @@ class TRMCarouselItemCell : BaseCollectionViewCell {
         }
     }
     
-    override func bindModel(model: any Codable) {
-        guard let model = model as? TRMTrendingItem else { return }
-        imageView.kf.setImage(with: URL(string: String(format: "%@w500%@", TRMConfig.TRMApiUrl.tmebImageUrl, model.posterPath ?? "")), placeholder: UIImage(named: "default_poster"))
+    override func bindModel() {
+        dataRelay.asDriverOnErrorJustComplete()
+            .map{ value -> TRMTrendingItem in
+                if let model = value as? TRMTrendingItem {
+                    return model
+                } else {
+                    return TRMTrendingItem()
+                }
+            }
+            .drive { model in
+                self.imageView.kf.setImage(with: URL(string: String(format: "%@w500%@", TRMConfig.TRMApiUrl.tmebImageUrl, model.posterPath ?? "")), placeholder: UIImage(named: "default_poster"))
+        }
+        .disposed(by: disposeBag)
     }
     
+    lazy var imageView: UIImageView = {
+        return UIImageView()
+    }()
 }

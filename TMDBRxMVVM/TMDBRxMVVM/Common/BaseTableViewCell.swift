@@ -12,6 +12,7 @@ import RxCocoa
 class BaseTableViewCell: UITableViewCell {
     
     let disposeBag = DisposeBag()
+    let dataRelay = BehaviorRelay<Any?>(value: nil)
     
     static var reuseID: String {
         return String(describing: self)
@@ -25,6 +26,7 @@ class BaseTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
         defineLayout()
+        bindModel()
     }
     
     func addSubviews() {
@@ -35,7 +37,7 @@ class BaseTableViewCell: UITableViewCell {
         
     }
     
-    func bindModel(model: Codable) {
+    func bindModel() {
         
     }
 }
