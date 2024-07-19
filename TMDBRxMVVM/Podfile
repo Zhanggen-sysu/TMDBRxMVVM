@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '13.0'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'TMDBRxMVVM' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -23,6 +24,7 @@ target 'TMDBRxMVVM' do
   # Resource
   pod 'R.swift'
   pod "FluentIcons"
+  pod 'Localize-Swift', '~> 3.2'
 
   # Debug
   pod 'LookinServer', :subspecs => ['Swift'], :configurations => ['Debug']

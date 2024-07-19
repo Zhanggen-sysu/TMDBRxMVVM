@@ -9,9 +9,10 @@ import Foundation
 import RxSwift
 import Moya
 import Alamofire
+import Localize_Swift
 
 enum TRMTmdbApi {
-    case trending(type: TRMMediaType, timeWindow: TRMTimeWindow, language: String)
+    case trending(type: TRMMediaType, timeWindow: TRMTimeWindow)
 }
 
 extension TRMTmdbApi: TargetType {
@@ -22,7 +23,7 @@ extension TRMTmdbApi: TargetType {
     
     var path: String {
         switch self {
-        case .trending(let type, let timeWindow, _):
+        case .trending(let type, let timeWindow):
             return "trending/\(type.rawValue)/\(timeWindow.rawValue)"
         }
     }
@@ -45,8 +46,8 @@ extension TRMTmdbApi: TargetType {
         var params: [String: Any] = [:]
         params["api_key"] = TRMConfig.TRMApiKey.tmdb.apiKey
         switch self {
-        case .trending(_, _, let language):
-            params["language"] = language
+        case .trending(_, _):
+            params["language"] = TMDBRxMVVM.tmdbLanguageName(language: Localize.currentLanguage())
         }
         return params
     }

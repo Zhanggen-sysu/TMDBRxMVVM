@@ -33,7 +33,7 @@ class TRMCarouselItemCell : BaseCollectionViewCell {
                 }
             }
             .drive { model in
-                self.imageView.kf.setImage(with: URL(string: String(format: "%@w500%@", TRMConfig.TRMApiUrl.tmebImageUrl, model.posterPath ?? "")), placeholder: UIImage(named: "default_poster"))
+                self.imageView.kf.setImage(with: URL(string: String(format: "%@w500%@", TRMConfig.TRMApiUrl.tmebImageUrl, model.posterPath ?? "")), placeholder: R.image.default_poster())
         }
         .disposed(by: disposeBag)
     }

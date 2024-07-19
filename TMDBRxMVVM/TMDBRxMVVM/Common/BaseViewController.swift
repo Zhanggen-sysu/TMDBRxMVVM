@@ -8,11 +8,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Localize_Swift
 
 class BaseViewController: UIViewController {
     
     var viewModel: any ViewModelType
     let disposeBag = DisposeBag()
+    // 语言变更事件
+    let languageRelay = BehaviorRelay<Void>(value: ())
     
     init(viewModel: any ViewModelType) {
         self.viewModel = viewModel
@@ -21,12 +24,6 @@ class BaseViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidLoad() {
@@ -47,6 +44,11 @@ class BaseViewController: UIViewController {
     }
     
     func bindViewModel() {
-        
+        NotificationCenter.default.rx
+            .notification(NSNotification.Name(LCLLanguageChangeNotification))
+            .subscribe { [weak self] _ in
+                self?.languageRelay.accept(())
+            }
+            .disposed(by: disposeBag)
     }
 }

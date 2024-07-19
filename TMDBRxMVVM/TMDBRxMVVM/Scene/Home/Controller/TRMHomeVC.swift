@@ -14,10 +14,11 @@ import RxDataSources
 class TRMHomeVC: BaseViewController {
     
     lazy var tableView: UITableView = {
-        var tableView = UITableView(frame: CGRectZero, style: .plain)
+        let tableView = UITableView(frame: CGRectZero, style: .plain)
         tableView.refreshControl = UIRefreshControl()
         tableView.delegate = self
         tableView.estimatedRowHeight = 80
+        tableView.separatorStyle = .none
         tableView.register(TRMCarouselCell.self, forCellReuseIdentifier: TRMCarouselCell.reuseID)
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never;
@@ -32,12 +33,13 @@ class TRMHomeVC: BaseViewController {
         
         let viewDidAppear = rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .mapToVoid()
+            .take(1)    // 只自动刷新1次
             .asDriverOnErrorJustComplete()
         let pull = tableView.refreshControl!.rx
             .controlEvent(.valueChanged)
             .asDriver()
         
-        let input = TRMHomeVM.Input(trigger: Driver.merge(viewDidAppear, pull))
+        let input = TRMHomeVM.Input(trigger: Driver.merge(languageRelay.asDriver(), viewDidAppear, pull))
         let output = viewModel.transform(input);
         
         output.isLoading

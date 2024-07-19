@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  TMDBRxMVVM
+
+  Created by GenZhang on 2024/7/18.
+  
+*/
+
+"TABS.HOME" = "主页";
+"TABS.DISCOVER" = "发现";
+"TABS.ACCOUNT" = "账户";
+
+"SETTING.LANGUAGE" = "语言";
+"SETTING.LANGUAGE.SAVE" = "保存";

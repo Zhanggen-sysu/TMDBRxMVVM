@@ -10,11 +10,52 @@ import RxSwift
 import RxCocoa
 import FluentIcons
 
-struct TRMTabsItem {
-    let viewModel: any ViewModelType
-    let title: String
-    let icon: FluentIcon
-    let selectedIcon: FluentIcon
+enum TRMTabsItem: Int {
+    case home, discover, account
+    
+    var icon: FluentIcon {
+        switch self {
+        case .home:
+            return .home24Regular
+        case .discover:
+            return .search24Regular
+        case .account:
+            return .personCircle24Regular
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .home:
+            return R.string.localizable.tabshomE.key.localized()
+        case .discover:
+            return R.string.localizable.tabsdiscoveR.key.localized()
+        case .account:
+            return R.string.localizable.tabsaccounT.key.localized()
+        }
+    }
+    
+    var selectedIcon: FluentIcon {
+        switch self {
+        case .home:
+            return .home24Filled
+        case .discover:
+            return .search24Filled
+        case .account:
+            return .personCircle24Filled
+        }
+    }
+    
+    var viewModel: any ViewModelType {
+        switch self {
+        case .home:
+            return TRMHomeVM()
+        case .discover:
+            return TRMDiscoverVM()
+        case .account:
+            return TRMAccountVM()
+        }
+    }
 }
 
 class TRMTabsVM: ViewModelType {
@@ -28,14 +69,9 @@ class TRMTabsVM: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
-        let tabs = Observable.just([
-            TRMTabsItem(viewModel: TRMHomeVM(), title: "Home", icon: .home24Regular, selectedIcon: .home24Filled),
-            TRMTabsItem(viewModel: TRMDiscoverVM(), title: "Discover", icon: .search24Regular, selectedIcon: .search24Filled),
+        let tabs = Driver.just([
+            TRMTabsItem.home, TRMTabsItem.discover, TRMTabsItem.account
         ])
-            .asDriver { error in
-                print("Error: \(error.localizedDescription)")
-                return Driver.empty()
-            }
         
         return Output(tabs: tabs)
     }

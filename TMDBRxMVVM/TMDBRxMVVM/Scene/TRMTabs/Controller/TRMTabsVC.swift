@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Localize_Swift
 
 class TRMTabsVC: UITabBarController {
     
@@ -28,6 +29,12 @@ class TRMTabsVC: UITabBarController {
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     func bindViewModel() {
         guard let viewModel = viewModel else { return }
         let input = TRMTabsVM.Input()
@@ -43,6 +50,14 @@ class TRMTabsVC: UITabBarController {
                 self.viewControllers = viewControllers
             }
             .disposed(by: disposeBag)
+        NotificationCenter.default.rx
+            .notification(NSNotification.Name(LCLLanguageChangeNotification))
+            .subscribe { [weak self] _ in
+                self?.tabBar.items?.forEach({ item in
+                    item.title = TRMTabsItem(rawValue: item.tag)?.title
+                })
+            }
+            .disposed(by: disposeBag)
     }
     
     static func createViewController(for item: TRMTabsItem) -> UIViewController {
@@ -51,6 +66,8 @@ class TRMTabsVC: UITabBarController {
             return TRMHomeVC(viewModel: item.viewModel)
         case is TRMDiscoverVM:
             return TRMDiscoverVC(viewModel: item.viewModel)
+        case is TRMAccountVM:
+            return TRMAccountVC(viewModel: item.viewModel)
         default:
             fatalError("Unsupported view model type for tabs.")
         }

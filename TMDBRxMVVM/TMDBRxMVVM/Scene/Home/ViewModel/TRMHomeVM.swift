@@ -26,7 +26,7 @@ class TRMHomeVM : ViewModelType {
         let activityIndicator = ActivityIndicator()
         let errorTracker = ErrorTracker()
         let trmTrendingRsp = input.trigger.flatMapLatest {
-            return TRMTmdbNetwork.shared.fetchItem(.trending(type: .all, timeWindow: .week, language: "en-US"))
+            return TRMTmdbNetwork.shared.fetchItem(.trending(type: .all, timeWindow: .week))
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()

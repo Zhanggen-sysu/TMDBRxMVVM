@@ -10,6 +10,7 @@ import UIKit
 
 enum AppDestination {
     case tabs(viewModel: TRMTabsVM)
+    case language(viewModel: TRMLanguageVM)
 }
 
 class AppNavigator {
@@ -19,15 +20,20 @@ class AppNavigator {
     let navigationController: UINavigationController
     
     private init() {
-        let tabsVM = TRMTabsVM()
-        let tabsVC = TRMTabsVC(viewModel: tabsVM)
+        let tabsVC = TRMTabsVC(viewModel: TRMTabsVM())
         navigationController = UINavigationController(rootViewController: tabsVC)
+    }
+    
+    func pop(animated: Bool) {
+        navigationController.popViewController(animated: animated)
     }
     
     func navigate(to destination: AppDestination) {
         switch destination {
-        case .tabs(let viewModel):
+        case .tabs(_):
             navigationController.popToRootViewController(animated: true)
+        case .language(let viewModel):
+            navigationController.pushViewController(TRMLanguageVC(viewModel: viewModel), animated: true)
         }
     }
 }
