@@ -61,10 +61,10 @@ class TRMCarouselCell : BaseTableViewCell {
     
     private func startCarousel() {
         timerDisposable?.dispose()
-        timerDisposable = Observable<Int>.interval(.seconds(3), scheduler: MainScheduler.instance)
+        timerDisposable = Observable<Int>.interval(.seconds(5), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self, model.count > 0 else { return }
-                self.collectionView .scrollToItem(at: IndexPath(item: Int(self.collectionView.contentOffset.x / screenWidth) + 1, section: 0), at: UICollectionView.ScrollPosition.left, animated: true)
+                self.collectionView.scrollToItem(at: IndexPath(item: Int(self.collectionView.contentOffset.x / screenWidth) + 1, section: 0), at: UICollectionView.ScrollPosition.left, animated: true)
             })
         timerDisposable?.disposed(by: disposeBag)
     }
@@ -79,7 +79,6 @@ class TRMCarouselCell : BaseTableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
         collectionView.isPagingEnabled = true
-        collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(TRMCarouselItemCell.self, forCellWithReuseIdentifier: TRMCarouselItemCell.reuseID)
         return collectionView
@@ -107,13 +106,6 @@ extension TRMCarouselCell : UIScrollViewDelegate
         } else {
             pageControl.currentPage = Int(scrollView.contentOffset.x / screenWidth) - 1
         }
-    }
-}
-
-extension TRMCarouselCell : UICollectionViewDelegate
-{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
 }
 

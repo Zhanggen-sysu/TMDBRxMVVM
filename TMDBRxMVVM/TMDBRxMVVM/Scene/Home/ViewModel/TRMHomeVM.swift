@@ -18,6 +18,7 @@ class TRMHomeVM : ViewModelType {
     
     struct Output {
         let trmTrendingRsp: Driver<[TRMTrendingItem]>
+        let moviePopularRsp: Driver<[TRMMovieListItem]>
         let isLoading: Driver<Bool>
         let error: Driver<Error>
     }
@@ -25,7 +26,8 @@ class TRMHomeVM : ViewModelType {
     func transform(_ input: Input) -> Output {
         let activityIndicator = ActivityIndicator()
         let errorTracker = ErrorTracker()
-        let trmTrendingRsp = input.trigger.flatMapLatest {
+        // 触发趋势请求
+        let trmTrendingRsp = input.trigger.flatMapLatest { _ in
             return TRMTmdbNetwork.shared.fetchItem(.trending(type: .all, timeWindow: .week))
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
@@ -34,8 +36,19 @@ class TRMHomeVM : ViewModelType {
                     return rsp.results!.filter{ $0.mediaType != .person}
                 }
         }
+        // 触发受欢迎电影请求
+        let moviePopularRsp = input.trigger.flatMapLatest { _ in
+            return TRMTmdbNetwork.shared.fetchItem(.movieList(type: .popular, page: 1))
+                .trackActivity(activityIndicator)
+                .trackError(errorTracker)
+                .asDriverOnErrorJustComplete()
+                .map{ (rsp: TRMMovieListRsp) -> [TRMMovieListItem] in
+                    return rsp.results ?? []
+                }
+        }
         
         return Output(trmTrendingRsp: trmTrendingRsp,
+                      moviePopularRsp: moviePopularRsp,
                       isLoading: activityIndicator.asDriver(),
                       error: errorTracker.asDriver())
     }

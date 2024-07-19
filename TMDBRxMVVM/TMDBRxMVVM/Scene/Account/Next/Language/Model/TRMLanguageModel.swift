@@ -36,3 +36,11 @@ func tmdbLanguageName(language: String) -> String
     }
     return "en-US"
 }
+
+func tmdbRegionName(language: String) -> String
+{
+    if language == "zh-Hans" {
+        return "cn"
+    }
+    return "us"
+}

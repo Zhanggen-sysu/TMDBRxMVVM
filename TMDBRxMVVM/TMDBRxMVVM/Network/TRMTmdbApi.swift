@@ -13,6 +13,7 @@ import Localize_Swift
 
 enum TRMTmdbApi {
     case trending(type: TRMMediaType, timeWindow: TRMTimeWindow)
+    case movieList(type: TRMMovieListType, page: NSInteger)
 }
 
 extension TRMTmdbApi: TargetType {
@@ -25,6 +26,8 @@ extension TRMTmdbApi: TargetType {
         switch self {
         case .trending(let type, let timeWindow):
             return "trending/\(type.rawValue)/\(timeWindow.rawValue)"
+        case .movieList(let type, let page):
+            return "movie/\(type.rawValue)"
         }
     }
     
@@ -45,9 +48,13 @@ extension TRMTmdbApi: TargetType {
     var parameters: [String: Any]? {
         var params: [String: Any] = [:]
         params["api_key"] = TRMConfig.TRMApiKey.tmdb.apiKey
+        params["language"] = TMDBRxMVVM.tmdbLanguageName(language: Localize.currentLanguage())
         switch self {
         case .trending(_, _):
-            params["language"] = TMDBRxMVVM.tmdbLanguageName(language: Localize.currentLanguage())
+            break
+        case .movieList(_, let page):
+            params["page"] = page
+            params["region"] = TMDBRxMVVM.tmdbRegionName(language: Localize.currentLanguage())
         }
         return params
     }
