@@ -80,6 +80,7 @@ class TRMCarouselCell : BaseTableViewCell {
         collectionView.backgroundColor = .white
         collectionView.isPagingEnabled = true
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(TRMCarouselItemCell.self, forCellWithReuseIdentifier: TRMCarouselItemCell.reuseID)
         return collectionView
     }()
@@ -107,6 +108,11 @@ extension TRMCarouselCell : UIScrollViewDelegate
             pageControl.currentPage = Int(scrollView.contentOffset.x / screenWidth) - 1
         }
     }
+}
+
+extension TRMCarouselCell : UICollectionViewDelegate
+{
+    
 }
 
 extension TRMCarouselCell : UICollectionViewDataSource

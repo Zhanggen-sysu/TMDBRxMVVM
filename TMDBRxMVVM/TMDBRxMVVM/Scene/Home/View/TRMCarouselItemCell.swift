@@ -32,10 +32,11 @@ class TRMCarouselItemCell : BaseCollectionViewCell {
                     return TRMTrendingItem()
                 }
             }
-            .drive { model in
+            .drive { [weak self] model in
+                guard let self = self else { return }
                 self.imageView.kf.setImage(with: URL(string: String(format: "%@w500%@", TRMConfig.TRMApiUrl.tmebImageUrl, model.posterPath ?? "")), placeholder: R.image.default_poster())
-        }
-        .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
     
     lazy var imageView: UIImageView = {

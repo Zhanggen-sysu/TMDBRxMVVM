@@ -13,19 +13,6 @@ import RxDataSources
 
 class TRMHomeVC: BaseViewController {
     
-    lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRectZero, style: .plain)
-        tableView.refreshControl = UIRefreshControl()
-        tableView.delegate = self
-        tableView.estimatedRowHeight = 80
-        tableView.separatorStyle = .none
-        tableView.register(TRMCarouselCell.self, forCellReuseIdentifier: TRMCarouselCell.reuseID)
-        if #available(iOS 11.0, *) {
-            tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never;
-        }
-        return tableView
-    }()
-    
     override func bindViewModel() {
         super.bindViewModel()
         
@@ -51,16 +38,25 @@ class TRMHomeVC: BaseViewController {
         })
         .disposed(by: disposeBag)
         
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, [TRMTrendingItem]>>(
-            configureCell: { dataSource, tableView, indexPath, items in
-                let cell = tableView.dequeueReusableCell(withIdentifier: TRMCarouselCell.reuseID, for: indexPath) as! TRMCarouselCell
-                cell.dataRelay.accept(items)
-                return cell
+        let dataSource = RxTableViewSectionedReloadDataSource<TRMHomeSection>(
+            configureCell: { dataSource, tableView, indexPath, item in
+                switch item {
+                case .trending(let model):
+                    let cell = tableView.dequeueReusableCell(withIdentifier: TRMCarouselCell.reuseID, for: indexPath) as! TRMCarouselCell
+                    cell.dataRelay.accept(model)
+                    return cell
+                case .moviePopularList(let model):
+                    let cell = tableView.dequeueReusableCell(withIdentifier: TRMHomeListCell.reuseID, for: indexPath) as! TRMHomeListCell
+                    cell.dataRelay.accept(model)
+                    return cell
+                }
+            }, titleForHeaderInSection: { dataSource, index in
+                let section = dataSource[index]
+                return section.title
             }
         )
 
-        output.trmTrendingRsp
-            .map{ [SectionModel(model: "", items: [$0])] }
+        output.outputVMDriver
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
@@ -73,9 +69,24 @@ class TRMHomeVC: BaseViewController {
     override func defineLayout() {
         super.defineLayout()
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(self.view)
+            make.top.left.right.equalTo(self.view)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         };
     }
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRectZero, style: .plain)
+        tableView.refreshControl = UIRefreshControl()
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 80
+        tableView.separatorStyle = .none
+        tableView.register(TRMCarouselCell.self, forCellReuseIdentifier: TRMCarouselCell.reuseID)
+        tableView.register(TRMHomeListCell.self, forCellReuseIdentifier: TRMHomeListCell.reuseID)
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never;
+        }
+        return tableView
+    }()
 }
 
 extension TRMHomeVC: UITableViewDelegate {

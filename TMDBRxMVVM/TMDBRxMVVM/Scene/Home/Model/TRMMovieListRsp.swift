@@ -50,7 +50,7 @@ class TRMMovieListItem: Codable {
     let popularity: Double?
     let posterPath, releaseDate, title: String?
     let video: Bool?
-    let voteAverage: Double?
+    let voteAverage: Double
     let voteCount: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -68,7 +68,7 @@ class TRMMovieListItem: Codable {
         case voteCount = "vote_count"
     }
 
-    init(adult: Bool? = false, backdropPath: String? = "", genreIDS: [Int]? = [], id: Int? = 0, originalLanguage: String? = "", originalTitle: String? = "", overview: String? = "", popularity: Double? = 0, posterPath: String? = "", releaseDate: String? = "", title: String? = "", video: Bool? = false, voteAverage: Double? = 0, voteCount: Int? = 0) {
+    init(adult: Bool? = false, backdropPath: String? = "", genreIDS: [Int]? = [], id: Int? = 0, originalLanguage: String? = "", originalTitle: String? = "", overview: String? = "", popularity: Double? = 0, posterPath: String? = "", releaseDate: String? = "", title: String? = "", video: Bool? = false, voteAverage: Double = 0, voteCount: Int? = 0) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.genreIDS = genreIDS
