@@ -29,7 +29,7 @@ class TRMHomeVM : ViewModelType {
         let errorTracker = ErrorTracker()
         let trendingRelay = BehaviorRelay<[TRMTrendingItem]>(value: [])
         let moviePopularRelay = BehaviorRelay<[TRMMovieListItem]>(value: [])
-        
+        let movieTopRatedRelay = BehaviorRelay<[TRMMovieListItem]>(value: [])
         // 触发趋势请求
         input.trigger.flatMapLatest { _ in
             return TRMTmdbNetwork.shared.fetchItem(.trending(type: .all, timeWindow: .week))
@@ -59,13 +59,29 @@ class TRMHomeVM : ViewModelType {
         }
         .disposed(by: disposeBag)
         
-        let items = Observable.combineLatest(trendingRelay, moviePopularRelay)
-            .map { (trendingModel, moviePopularModel) -> [TRMHomeSection] in
+        input.trigger.flatMapLatest { _ in
+            return TRMTmdbNetwork.shared.fetchItem(.movieList(type: .top_rated, page: 1))
+                .trackActivity(activityIndicator)
+                .trackError(errorTracker)
+                .asDriverOnErrorJustComplete()
+                .map{ (rsp: TRMMovieListRsp) -> [TRMMovieListItem] in
+                    return rsp.results ?? []
+                }
+        }
+        .drive { model in
+            movieTopRatedRelay.accept(model)
+        }
+        .disposed(by: disposeBag)
+        
+        let items = Observable.combineLatest(trendingRelay, moviePopularRelay, movieTopRatedRelay)
+            .map { (trendingModel, moviePopularModel, movieTopRatedModel) -> [TRMHomeSection] in
                 let trendingItem = TRMHomeSectionItem.trending(data: trendingModel)
                 let moviePopularItem = TRMHomeSectionItem.moviePopularList(data: moviePopularModel)
+                let movieTopRatedItem = TRMHomeSectionItem.movieTopRatedList(data: movieTopRatedModel)
                 var items: [TRMHomeSection] = []
                 items.append(TRMHomeSection.home(title: "", items: [trendingItem]))
-                items.append(TRMHomeSection.home(title: "Popular Movie", items: [moviePopularItem]))
+                items.append(TRMHomeSection.home(title: R.string.localizable.homepopular_MOVIE.key.localized(), items: [moviePopularItem]))
+                items.append(TRMHomeSection.home(title: R.string.localizable.hometop_RATED_MOVIE.key.localized(), items: [movieTopRatedItem]))
                 return items
             }
             .asDriverOnErrorJustComplete()

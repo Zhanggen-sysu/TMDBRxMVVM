@@ -10,5 +10,11 @@
 "TABS.DISCOVER" = "发现";
 "TABS.ACCOUNT" = "账户";
 
+"HOME.POPULAR_MOVIE" = "受欢迎电影";
+"HOME.TOP_RATED_MOVIE" = "高分电影";
+"HOME.POPULAR_TVS" = "受欢迎电视剧";
+"HOME.TOP_RATED_TVS" = "高分电视剧";
+"HOME.SEE_MORE" = "查看更多";
+
 "SETTING.LANGUAGE" = "语言";
 "SETTING.LANGUAGE.SAVE" = "保存";

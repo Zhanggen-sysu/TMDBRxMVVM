@@ -20,7 +20,7 @@ class TRMHomeListCell: BaseTableViewCell
         collectionView.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(15)
             make.top.equalTo(contentView).offset(10)
-            make.bottom.equalTo(contentView).offset(-10)
+            make.bottom.equalTo(contentView)
             make.right.equalTo(contentView)
             make.height.equalTo(320)
         }

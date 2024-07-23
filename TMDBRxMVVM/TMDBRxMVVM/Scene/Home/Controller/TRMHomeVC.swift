@@ -13,6 +13,8 @@ import RxDataSources
 
 class TRMHomeVC: BaseViewController {
     
+    var dataSource: RxTableViewSectionedReloadDataSource<TRMHomeSection>?
+    
     override func bindViewModel() {
         super.bindViewModel()
         
@@ -38,26 +40,23 @@ class TRMHomeVC: BaseViewController {
         })
         .disposed(by: disposeBag)
         
-        let dataSource = RxTableViewSectionedReloadDataSource<TRMHomeSection>(
+        dataSource = RxTableViewSectionedReloadDataSource<TRMHomeSection>(
             configureCell: { dataSource, tableView, indexPath, item in
                 switch item {
                 case .trending(let model):
                     let cell = tableView.dequeueReusableCell(withIdentifier: TRMCarouselCell.reuseID, for: indexPath) as! TRMCarouselCell
                     cell.dataRelay.accept(model)
                     return cell
-                case .moviePopularList(let model):
+                case .moviePopularList(let model), .movieTopRatedList(data: let model):
                     let cell = tableView.dequeueReusableCell(withIdentifier: TRMHomeListCell.reuseID, for: indexPath) as! TRMHomeListCell
                     cell.dataRelay.accept(model)
                     return cell
                 }
-            }, titleForHeaderInSection: { dataSource, index in
-                let section = dataSource[index]
-                return section.title
             }
         )
 
         output.outputVMDriver
-            .drive(tableView.rx.items(dataSource: dataSource))
+            .drive(tableView.rx.items(dataSource: dataSource!))
             .disposed(by: disposeBag)
     }
     
@@ -75,15 +74,23 @@ class TRMHomeVC: BaseViewController {
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRectZero, style: .plain)
+        let tableView = UITableView(frame: CGRectZero, style: .grouped)
         tableView.refreshControl = UIRefreshControl()
         tableView.delegate = self
         tableView.estimatedRowHeight = 80
         tableView.separatorStyle = .none
+        // 不知道为什么底部多了20px，没找到好办法，就这样改吧
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
         tableView.register(TRMCarouselCell.self, forCellReuseIdentifier: TRMCarouselCell.reuseID)
         tableView.register(TRMHomeListCell.self, forCellReuseIdentifier: TRMHomeListCell.reuseID)
+        tableView.register(TRMHomeSectionView.self, forHeaderFooterViewReuseIdentifier: String(describing: TRMHomeSectionView.self))
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never;
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
         }
         return tableView
     }()
@@ -95,5 +102,31 @@ extension TRMHomeVC: UITableViewDelegate {
             return ceil(screenWidth * 3 / 2)
         }
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 0: 
+            return nil
+        default:
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TRMHomeSectionView.self)) as! TRMHomeSectionView
+            view.dataRelay.accept(dataSource?.sectionModels[section])
+            return view
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0: return CGFloat.leastNormalMagnitude
+        default: return 50.0;
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView();
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
 }

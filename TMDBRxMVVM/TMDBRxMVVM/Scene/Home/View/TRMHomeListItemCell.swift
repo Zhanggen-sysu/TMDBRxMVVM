@@ -91,7 +91,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
     
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        nameLabel.font = .boldSystemFont(ofSize: 15)
         nameLabel.textColor = UIColor.black
         nameLabel.numberOfLines = 0
         return nameLabel
@@ -99,7 +99,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
     
     lazy var timeLabel: UILabel = {
         let timeLabel = UILabel()
-        timeLabel.font = UIFont.systemFont(ofSize: 13)
+        timeLabel.font = .systemFont(ofSize: 13)
         timeLabel.textColor = UIColor.gray
         return timeLabel
     }()
@@ -114,7 +114,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
     
     lazy var scoreLabel: UILabel = {
         let scoreLabel = UILabel()
-        scoreLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        scoreLabel.font = .boldSystemFont(ofSize: 15)
         scoreLabel.textColor = UIColor.white
         return scoreLabel
     }()

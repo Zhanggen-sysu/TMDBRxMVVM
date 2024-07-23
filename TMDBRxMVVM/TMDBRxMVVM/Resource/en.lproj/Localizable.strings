@@ -10,5 +10,11 @@
 "TABS.DISCOVER" = "Discover";
 "TABS.ACCOUNT" = "Account";
 
+"HOME.POPULAR_MOVIE" = "Popular Movies";
+"HOME.TOP_RATED_MOVIE" = "Top Rated Movies";
+"HOME.POPULAR_TVS" = "Popular TVs";
+"HOME.TOP_RATED_TVS" = "Top Rated TVs";
+"HOME.SEE_MORE" = "See More";
+
 "SETTING.LANGUAGE" = "Language";
 "SETTING.LANGUAGE.SAVE" = "Save";
