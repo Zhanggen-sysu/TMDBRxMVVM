@@ -11,4 +11,5 @@ import RxSwift
 protocol APIServiceType {
     func trending(type: TRMMediaType, timeWindow: TRMTimeWindow) -> Single<TRMTrendingRsp>
     func movieList(type: TRMMovieListType, page: NSInteger) -> Single<TRMMovieListRsp>
+    func tvList(type: TRMTVListType, page: NSInteger) -> Single<TRMTVListRsp>
 }

@@ -10,10 +10,16 @@
 "TABS.DISCOVER" = "Discover";
 "TABS.ACCOUNT" = "Account";
 
+"HOME.MOVIE" = "Movies";
+"HOME.TV" = "TVs";
 "HOME.POPULAR_MOVIE" = "Popular Movies";
 "HOME.TOP_RATED_MOVIE" = "Top Rated Movies";
-"HOME.POPULAR_TVS" = "Popular TVs";
-"HOME.TOP_RATED_TVS" = "Top Rated TVs";
+"HOME.UPCOMING_MOVIE" = "Upcoming Movies";
+"HOME.NOW_PLAYING_MOVIE" = "Now Playing Movies";
+"HOME.AIRING_TODAY_TV" = "Airing Today TVs";
+"HOME.ON_THE_AIR_TV" = "On The Air TVs";
+"HOME.POPULAR_TV" = "Popular TVs";
+"HOME.TOP_RATED_TV" = "Top Rated TVs";
 "HOME.SEE_MORE" = "See More";
 
 "SETTING.LANGUAGE" = "Language";

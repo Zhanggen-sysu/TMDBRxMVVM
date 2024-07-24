@@ -22,6 +22,8 @@
 		3D374C1C2C4A77C800BCD931 /* TRMHomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C1B2C4A77C800BCD931 /* TRMHomeSection.swift */; };
 		3D374C4E2C4E820F00BCD931 /* TRMHomeListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C4D2C4E820F00BCD931 /* TRMHomeListItemCell.swift */; };
 		3D374C792C4FB88200BCD931 /* TRMHomeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C782C4FB88200BCD931 /* TRMHomeSectionView.swift */; };
+		3D374C852C50A5A900BCD931 /* TRMTVListRsp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C842C50A5A800BCD931 /* TRMTVListRsp.swift */; };
+		3D374C8C2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C8B2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift */; };
 		3D79EC502C2EC0D100CEA938 /* TMDBRxMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC4F2C2EC0D100CEA938 /* TMDBRxMVVMTests.swift */; };
 		3D79EC5A2C2EC0D100CEA938 /* TMDBRxMVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC592C2EC0D100CEA938 /* TMDBRxMVVMUITests.swift */; };
 		3D79EC5C2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC5B2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift */; };
@@ -95,6 +97,8 @@
 		3D374C1B2C4A77C800BCD931 /* TRMHomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMHomeSection.swift; sourceTree = "<group>"; };
 		3D374C4D2C4E820F00BCD931 /* TRMHomeListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMHomeListItemCell.swift; sourceTree = "<group>"; };
 		3D374C782C4FB88200BCD931 /* TRMHomeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMHomeSectionView.swift; sourceTree = "<group>"; };
+		3D374C842C50A5A800BCD931 /* TRMTVListRsp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTVListRsp.swift; sourceTree = "<group>"; };
+		3D374C8B2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMHomeSegmentSectionView.swift; sourceTree = "<group>"; };
 		3D79EC352C2EC0CF00CEA938 /* TMDBRxMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBRxMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D79EC412C2EC0D100CEA938 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D79EC462C2EC0D100CEA938 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -480,6 +484,7 @@
 				3D374C172C4A567900BCD931 /* TRMHomeListCell.swift */,
 				3D374C4D2C4E820F00BCD931 /* TRMHomeListItemCell.swift */,
 				3D374C782C4FB88200BCD931 /* TRMHomeSectionView.swift */,
+				3D374C8B2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 				3DA1AEB22C364E8100CBF933 /* TRMTrendindRsp.swift */,
 				3D374C192C4A5DBF00BCD931 /* TRMMovieListRsp.swift */,
 				3D374C1B2C4A77C800BCD931 /* TRMHomeSection.swift */,
+				3D374C842C50A5A800BCD931 /* TRMTVListRsp.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -826,8 +832,10 @@
 				3DA1AEAF2C35640700CBF933 /* TRMConfig.swift in Sources */,
 				3DA40D492C3C06ED001B6C55 /* ReachabilityManager.swift in Sources */,
 				3D84DFD62C4513FF0084CF05 /* TRMCarouselItemCell.swift in Sources */,
+				3D374C8C2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift in Sources */,
 				3DA40D5F2C3E3481001B6C55 /* AppNavigator.swift in Sources */,
 				3D84DFCC2C44FB7C0084CF05 /* ActivityIndicator.swift in Sources */,
+				3D374C852C50A5A900BCD931 /* TRMTVListRsp.swift in Sources */,
 				3D79EC932C2EC10500CEA938 /* TRMHomeVC.swift in Sources */,
 				3D79EC8F2C2EC10500CEA938 /* TRMAccountVC.swift in Sources */,
 				3D374C792C4FB88200BCD931 /* TRMHomeSectionView.swift in Sources */,

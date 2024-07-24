@@ -10,10 +10,16 @@
 "TABS.DISCOVER" = "发现";
 "TABS.ACCOUNT" = "账户";
 
+"HOME.MOVIE" = "电影";
+"HOME.TV" = "电视剧";
 "HOME.POPULAR_MOVIE" = "受欢迎电影";
 "HOME.TOP_RATED_MOVIE" = "高分电影";
-"HOME.POPULAR_TVS" = "受欢迎电视剧";
-"HOME.TOP_RATED_TVS" = "高分电视剧";
+"HOME.UPCOMING_MOVIE" = "即将上映电影";
+"HOME.NOW_PLAYING_MOVIE" = "正在上映电影";
+"HOME.AIRING_TODAY_TV" = "今日播出电视剧";
+"HOME.ON_THE_AIR_TV" = "未来7日播出电视剧";
+"HOME.POPULAR_TV" = "受欢迎电视剧";
+"HOME.TOP_RATED_TV" = "高分电视剧";
 "HOME.SEE_MORE" = "查看更多";
 
 "SETTING.LANGUAGE" = "语言";

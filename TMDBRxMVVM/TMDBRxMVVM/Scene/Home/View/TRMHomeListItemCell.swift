@@ -63,6 +63,14 @@ class TRMHomeListItemCell: BaseCollectionViewCell
                     
                     self.shapeLayer.strokeEnd = movieModel.voteAverage / 10.0
                     self.shapeLayer.strokeColor = self.getStrokeColor(with: movieModel.voteAverage)
+                } else if let tvModel = model as? TRMTVListItem {
+                    self.icon.kf.setImage(with: URL(string: String(format: "%@w342%@", TRMConfig.TRMApiUrl.tmebImageUrl, tvModel.posterPath ?? "")), placeholder: R.image.default_poster())
+                    self.nameLabel.text = tvModel.name
+                    self.timeLabel.text = tvModel.firstAirDate
+                    self.scoreLabel.text = String(format: "%.1f", tvModel.voteAverage)
+                    
+                    self.shapeLayer.strokeEnd = tvModel.voteAverage / 10.0
+                    self.shapeLayer.strokeColor = self.getStrokeColor(with: tvModel.voteAverage)
                 }
             })
             .disposed(by: disposeBag)
@@ -71,11 +79,13 @@ class TRMHomeListItemCell: BaseCollectionViewCell
     func getStrokeColor(with voteAverage: Double) -> CGColor
     {
         switch voteAverage {
-        case 0..<3:
+        case 0..<2.5:
             return UIColor.red.cgColor
-        case 3..<7:
+        case 2.5..<5:
+            return UIColor.yellow.cgColor
+        case 5..<7.5:
             return UIColor.orange.cgColor
-        case 7..<10:
+        case 7.5...10:
             return UIColor.green.cgColor
         default:
             return UIColor.white.cgColor
@@ -124,7 +134,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: 20, y: 20), radius: 18, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 1.5, clockwise: true)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeEnd = 0
-        shapeLayer.lineWidth = 2
+        shapeLayer.lineWidth = 3
         shapeLayer.lineCap = .round
         shapeLayer.fillColor = UIColor.clear.cgColor
         return shapeLayer

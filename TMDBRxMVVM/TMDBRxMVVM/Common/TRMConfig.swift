@@ -37,6 +37,10 @@ enum TRMMovieListType: String {
     case now_playing, popular, top_rated, upcoming
 }
 
+enum TRMTVListType: String {
+    case airing_today, on_the_air, popular, top_rated
+}
+
 enum TRMMediaType: String, Codable {
     case all, movie, tv, person
 }

@@ -10,8 +10,17 @@ import Differentiator
 
 enum TRMHomeSectionItem {
     case trending(data: [TRMTrendingItem])
+    case segmentSection(data: [String])
+    
     case moviePopularList(data: [TRMMovieListItem])
     case movieTopRatedList(data: [TRMMovieListItem])
+    case movieUpcomingList(data: [TRMMovieListItem])
+    case movieNowPlayingList(data: [TRMMovieListItem])
+    
+    case tvAiringTodayList(data: [TRMTVListItem])
+    case tvOnTheAirList(data: [TRMTVListItem])
+    case tvPopularList(data: [TRMTVListItem])
+    case tvTopRatedList(data: [TRMTVListItem])
 }
 
 enum TRMHomeSection {

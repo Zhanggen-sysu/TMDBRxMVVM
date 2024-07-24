@@ -14,6 +14,7 @@ import RxDataSources
 class TRMHomeVC: BaseViewController {
     
     var dataSource: RxTableViewSectionedReloadDataSource<TRMHomeSection>?
+    let segmentChangeRelay = BehaviorRelay<NSInteger>(value: 0)
     
     override func bindViewModel() {
         super.bindViewModel()
@@ -28,7 +29,7 @@ class TRMHomeVC: BaseViewController {
             .controlEvent(.valueChanged)
             .asDriver()
         
-        let input = TRMHomeVM.Input(trigger: Driver.merge(languageRelay.asDriver(), viewDidAppear, pull))
+        let input = TRMHomeVM.Input(trigger: Driver.merge(languageRelay.asDriver(), viewDidAppear, pull), segmentTrigger: segmentChangeRelay.asDriver())
         let output = viewModel.transform(input);
         
         output.isLoading
@@ -47,10 +48,22 @@ class TRMHomeVC: BaseViewController {
                     let cell = tableView.dequeueReusableCell(withIdentifier: TRMCarouselCell.reuseID, for: indexPath) as! TRMCarouselCell
                     cell.dataRelay.accept(model)
                     return cell
-                case .moviePopularList(let model), .movieTopRatedList(data: let model):
+                case .moviePopularList(let model),
+                     .movieTopRatedList(let model),
+                     .movieUpcomingList(let model),
+                     .movieNowPlayingList(let model):
                     let cell = tableView.dequeueReusableCell(withIdentifier: TRMHomeListCell.reuseID, for: indexPath) as! TRMHomeListCell
                     cell.dataRelay.accept(model)
                     return cell
+                case .tvAiringTodayList(let model),
+                     .tvOnTheAirList(let model),
+                     .tvPopularList(let model),
+                     .tvTopRatedList(let model):
+                    let cell = tableView.dequeueReusableCell(withIdentifier: TRMHomeListCell.reuseID, for: indexPath) as! TRMHomeListCell
+                    cell.dataRelay.accept(model)
+                    return cell
+                case .segmentSection(_):
+                    return UITableViewCell()
                 }
             }
         )
@@ -84,6 +97,7 @@ class TRMHomeVC: BaseViewController {
         tableView.register(TRMCarouselCell.self, forCellReuseIdentifier: TRMCarouselCell.reuseID)
         tableView.register(TRMHomeListCell.self, forCellReuseIdentifier: TRMHomeListCell.reuseID)
         tableView.register(TRMHomeSectionView.self, forHeaderFooterViewReuseIdentifier: String(describing: TRMHomeSectionView.self))
+        tableView.register(TRMHomeSegmentSectionView.self, forHeaderFooterViewReuseIdentifier: String(describing: TRMHomeSegmentSectionView.self))
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never;
         } else {
@@ -101,6 +115,9 @@ extension TRMHomeVC: UITableViewDelegate {
         if indexPath.section == 0 {
             return ceil(screenWidth * 3 / 2)
         }
+        if indexPath.section == 1 {
+            return CGFloat.leastNormalMagnitude
+        }
         return UITableView.automaticDimension
     }
     
@@ -108,6 +125,17 @@ extension TRMHomeVC: UITableViewDelegate {
         switch section {
         case 0: 
             return nil
+        case 1:
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TRMHomeSegmentSectionView.self)) as! TRMHomeSegmentSectionView
+            view.dataRelay
+                .accept(())
+            view.segmentedControl.rx.controlEvent(.valueChanged)
+                .subscribe { [weak self] _ in
+                    guard let self = self else { return }
+                    self.segmentChangeRelay.accept(view.segmentedControl.selectedSegmentIndex)
+                }
+                .disposed(by: disposeBag)
+            return view
         default:
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TRMHomeSectionView.self)) as! TRMHomeSectionView
             view.dataRelay.accept(dataSource?.sectionModels[section])
