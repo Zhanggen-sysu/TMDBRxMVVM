@@ -13,10 +13,12 @@ import RxDataSources
 class TRMHomeListCell: BaseTableViewCell
 {
     override func addSubviews() {
+        super.addSubviews()
         contentView.addSubview(collectionView)
     }
     
     override func defineLayout() {
+        super.defineLayout()
         collectionView.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(15)
             make.top.equalTo(contentView).offset(10)
@@ -27,7 +29,7 @@ class TRMHomeListCell: BaseTableViewCell
     }
     
     override func bindModel() {
-        
+        super.bindModel()
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Codable>> {
             dataSource, collectionView, indexPath, item in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TRMHomeListItemCell.reuseID, for: indexPath) as! TRMHomeListItemCell

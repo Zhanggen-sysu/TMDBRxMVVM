@@ -20,12 +20,14 @@ class TRMCarouselCell : BaseTableViewCell {
     }
     
     override func addSubviews() {
+        super.addSubviews()
         self.selectionStyle = .none
         contentView.addSubview(collectionView)
         contentView.addSubview(pageControl)
     }
     
     override func defineLayout() {
+        super.defineLayout()
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
         }
@@ -36,7 +38,7 @@ class TRMCarouselCell : BaseTableViewCell {
     }
     
     override func bindModel() {
-        
+        super.bindModel()
         dataRelay.asDriverOnErrorJustComplete()
             .map { value -> [TRMTrendingItem] in
                 if let model = value as? [TRMTrendingItem] {

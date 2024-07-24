@@ -14,16 +14,19 @@ import Kingfisher
 class TRMCarouselItemCell : BaseCollectionViewCell {
     
     override func addSubviews() {
+        super.addSubviews()
         contentView.addSubview(imageView)
     }
     
     override func defineLayout() {
+        super.defineLayout()
         imageView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
         }
     }
     
     override func bindModel() {
+        super.bindModel()
         dataRelay.asDriverOnErrorJustComplete()
             .map{ value -> TRMTrendingItem in
                 if let model = value as? TRMTrendingItem {
@@ -34,7 +37,7 @@ class TRMCarouselItemCell : BaseCollectionViewCell {
             }
             .drive { [weak self] model in
                 guard let self = self else { return }
-                self.imageView.kf.setImage(with: URL(string: String(format: "%@w500%@", TRMConfig.TRMApiUrl.tmebImageUrl, model.posterPath ?? "")), placeholder: R.image.default_poster())
+                self.imageView.kf.setImage(with: URL(string: "\(TRMConfig.TRMApiUrl.tmebImageUrl)\(TRMPosterSize.w500.rawValue)\(model.posterPath ?? "")"), placeholder: R.image.default_poster())
             }
             .disposed(by: disposeBag)
     }

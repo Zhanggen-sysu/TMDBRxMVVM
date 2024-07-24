@@ -12,10 +12,12 @@ import RxDataSources
 class TRMAccountVC: BaseViewController {
 
     override func addSubviews() {
+        super.addSubviews()
         self.view.addSubview(tableView)
     }
     
     override func defineLayout() {
+        super.defineLayout()
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(self.view)
         }

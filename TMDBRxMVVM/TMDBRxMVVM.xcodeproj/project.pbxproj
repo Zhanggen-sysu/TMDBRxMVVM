@@ -24,6 +24,9 @@
 		3D374C792C4FB88200BCD931 /* TRMHomeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C782C4FB88200BCD931 /* TRMHomeSectionView.swift */; };
 		3D374C852C50A5A900BCD931 /* TRMTVListRsp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C842C50A5A800BCD931 /* TRMTVListRsp.swift */; };
 		3D374C8C2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C8B2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift */; };
+		3D374CA12C50EAB400BCD931 /* TRMTabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C9C2C50EAB400BCD931 /* TRMTabsVC.swift */; };
+		3D374CA22C50EAB400BCD931 /* TRMTabsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374C9E2C50EAB400BCD931 /* TRMTabsVM.swift */; };
+		3D374CA92C50EB7B00BCD931 /* TRMMovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374CA82C50EB7B00BCD931 /* TRMMovieDetailVC.swift */; };
 		3D79EC502C2EC0D100CEA938 /* TMDBRxMVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC4F2C2EC0D100CEA938 /* TMDBRxMVVMTests.swift */; };
 		3D79EC5A2C2EC0D100CEA938 /* TMDBRxMVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC592C2EC0D100CEA938 /* TMDBRxMVVMUITests.swift */; };
 		3D79EC5C2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC5B2C2EC0D100CEA938 /* TMDBRxMVVMUITestsLaunchTests.swift */; };
@@ -37,8 +40,6 @@
 		3D79EC942C2EC10500CEA938 /* TRMHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC7C2C2EC10500CEA938 /* TRMHomeVM.swift */; };
 		3D79EC952C2EC10500CEA938 /* TRMSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC7F2C2EC10500CEA938 /* TRMSearchVC.swift */; };
 		3D79EC962C2EC10500CEA938 /* TRMSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC812C2EC10500CEA938 /* TRMSearchVM.swift */; };
-		3D79EC972C2EC10500CEA938 /* TRMTabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC842C2EC10500CEA938 /* TRMTabsVC.swift */; };
-		3D79EC982C2EC10500CEA938 /* TRMTabsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EC862C2EC10500CEA938 /* TRMTabsVM.swift */; };
 		3D84DFB02C44C9220084CF05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D79EC412C2EC0D100CEA938 /* Assets.xcassets */; };
 		3D84DFCC2C44FB7C0084CF05 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFC72C44FB7C0084CF05 /* ActivityIndicator.swift */; };
 		3D84DFCD2C44FB7C0084CF05 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D84DFC92C44FB7C0084CF05 /* ErrorTracker.swift */; };
@@ -99,6 +100,9 @@
 		3D374C782C4FB88200BCD931 /* TRMHomeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMHomeSectionView.swift; sourceTree = "<group>"; };
 		3D374C842C50A5A800BCD931 /* TRMTVListRsp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTVListRsp.swift; sourceTree = "<group>"; };
 		3D374C8B2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMHomeSegmentSectionView.swift; sourceTree = "<group>"; };
+		3D374C9C2C50EAB400BCD931 /* TRMTabsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVC.swift; sourceTree = "<group>"; };
+		3D374C9E2C50EAB400BCD931 /* TRMTabsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVM.swift; sourceTree = "<group>"; };
+		3D374CA82C50EB7B00BCD931 /* TRMMovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMMovieDetailVC.swift; sourceTree = "<group>"; };
 		3D79EC352C2EC0CF00CEA938 /* TMDBRxMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBRxMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D79EC412C2EC0D100CEA938 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D79EC462C2EC0D100CEA938 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,8 +121,6 @@
 		3D79EC7C2C2EC10500CEA938 /* TRMHomeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMHomeVM.swift; sourceTree = "<group>"; };
 		3D79EC7F2C2EC10500CEA938 /* TRMSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMSearchVC.swift; sourceTree = "<group>"; };
 		3D79EC812C2EC10500CEA938 /* TRMSearchVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMSearchVM.swift; sourceTree = "<group>"; };
-		3D79EC842C2EC10500CEA938 /* TRMTabsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVC.swift; sourceTree = "<group>"; };
-		3D79EC862C2EC10500CEA938 /* TRMTabsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRMTabsVM.swift; sourceTree = "<group>"; };
 		3D84DFC72C44FB7C0084CF05 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3D84DFC92C44FB7C0084CF05 /* ErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
 		3D84DFCE2C44FE530084CF05 /* TRMTmdbNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRMTmdbNetwork.swift; sourceTree = "<group>"; };
@@ -227,6 +229,63 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3D374C9D2C50EAB400BCD931 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D374C9C2C50EAB400BCD931 /* TRMTabsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D374C9F2C50EAB400BCD931 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D374C9E2C50EAB400BCD931 /* TRMTabsVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3D374CA02C50EAB400BCD931 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				3D374C9D2C50EAB400BCD931 /* Controller */,
+				3D374C9F2C50EAB400BCD931 /* ViewModel */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		3D374CA42C50EB5600BCD931 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3D374CA72C50EB5D00BCD931 /* Controller */,
+			);
+			path = MovieDetail;
+			sourceTree = "<group>";
+		};
+		3D374CA52C50EB5600BCD931 /* TVDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVDetail;
+			sourceTree = "<group>";
+		};
+		3D374CA62C50EB5600BCD931 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				3D374CA42C50EB5600BCD931 /* MovieDetail */,
+				3D374CA52C50EB5600BCD931 /* TVDetail */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		3D374CA72C50EB5D00BCD931 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D374CA82C50EB7B00BCD931 /* TRMMovieDetailVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3D79EC2C2C2EC0CF00CEA938 = {
 			isa = PBXGroup;
 			children = (
@@ -321,9 +380,9 @@
 		3D79EC732C2EC10500CEA938 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				3D79EC702C2EC10500CEA938 /* Controller */,
 				3D374BEC2C49081E00BCD931 /* Next */,
 				3D374BE82C4900C600BCD931 /* View */,
-				3D79EC702C2EC10500CEA938 /* Controller */,
 				3D79EC722C2EC10500CEA938 /* ViewModel */,
 			);
 			path = Account;
@@ -381,9 +440,9 @@
 		3D79EC7E2C2EC10500CEA938 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3D84DFD02C4505D70084CF05 /* View */,
-				3DA1AEB12C3646FA00CBF933 /* Model */,
 				3D79EC7B2C2EC10500CEA938 /* Controller */,
+				3DA1AEB12C3646FA00CBF933 /* Model */,
+				3D84DFD02C4505D70084CF05 /* View */,
 				3D79EC7D2C2EC10500CEA938 /* ViewModel */,
 			);
 			path = Home;
@@ -414,39 +473,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		3D79EC852C2EC10500CEA938 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				3D79EC842C2EC10500CEA938 /* TRMTabsVC.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		3D79EC872C2EC10500CEA938 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3D79EC862C2EC10500CEA938 /* TRMTabsVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3D79EC882C2EC10500CEA938 /* TRMTabs */ = {
-			isa = PBXGroup;
-			children = (
-				3D79EC852C2EC10500CEA938 /* Controller */,
-				3D79EC872C2EC10500CEA938 /* ViewModel */,
-			);
-			path = TRMTabs;
-			sourceTree = "<group>";
-		};
 		3D79EC892C2EC10500CEA938 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				3D79EC732C2EC10500CEA938 /* Account */,
+				3D374CA62C50EB5600BCD931 /* Detail */,
 				3D79EC792C2EC10500CEA938 /* Discover */,
 				3D79EC7E2C2EC10500CEA938 /* Home */,
 				3D79EC832C2EC10500CEA938 /* Search */,
-				3D79EC882C2EC10500CEA938 /* TRMTabs */,
+				3D374CA02C50EAB400BCD931 /* Tabs */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -809,19 +844,18 @@
 				3D84DFD82C45140F0084CF05 /* BaseCollectionViewCell.swift in Sources */,
 				3D79EC8C2C2EC10500CEA938 /* AppDelegate.swift in Sources */,
 				3D79EC952C2EC10500CEA938 /* TRMSearchVC.swift in Sources */,
+				3D374CA12C50EAB400BCD931 /* TRMTabsVC.swift in Sources */,
 				3D374C182C4A567900BCD931 /* TRMHomeListCell.swift in Sources */,
 				3D374C162C4A3A1500BCD931 /* TRMLanguageCell.swift in Sources */,
 				3D84DFCF2C44FE530084CF05 /* TRMTmdbNetwork.swift in Sources */,
 				3DA40D452C3BFEEF001B6C55 /* APIServiceType.swift in Sources */,
 				3DA40D472C3BFFA9001B6C55 /* NetworkingService.swift in Sources */,
-				3D79EC982C2EC10500CEA938 /* TRMTabsVM.swift in Sources */,
 				3D374BF22C49084E00BCD931 /* TRMLanguageVM.swift in Sources */,
 				3DE90F4F2C32494700A7CB70 /* BaseViewController.swift in Sources */,
 				3D79EC942C2EC10500CEA938 /* TRMHomeVM.swift in Sources */,
 				3D374BFD2C493B4200BCD931 /* TRMLanguageModel.swift in Sources */,
 				3DA40D612C3E8648001B6C55 /* SceneDelegate.swift in Sources */,
 				3D374BE42C48F8A700BCD931 /* R.generated.swift in Sources */,
-				3D79EC972C2EC10500CEA938 /* TRMTabsVC.swift in Sources */,
 				3D79EC8A2C2EC10500CEA938 /* ViewModelType.swift in Sources */,
 				3D374C1C2C4A77C800BCD931 /* TRMHomeSection.swift in Sources */,
 				3D374C1A2C4A5DBF00BCD931 /* TRMMovieListRsp.swift in Sources */,
@@ -829,7 +863,9 @@
 				3D84DFCD2C44FB7C0084CF05 /* ErrorTracker.swift in Sources */,
 				3DA1AEAD2C3562DD00CBF933 /* TRMTmdbApi.swift in Sources */,
 				3D374BF02C49084400BCD931 /* TRMLanguageVC.swift in Sources */,
+				3D374CA92C50EB7B00BCD931 /* TRMMovieDetailVC.swift in Sources */,
 				3DA1AEAF2C35640700CBF933 /* TRMConfig.swift in Sources */,
+				3D374CA22C50EAB400BCD931 /* TRMTabsVM.swift in Sources */,
 				3DA40D492C3C06ED001B6C55 /* ReachabilityManager.swift in Sources */,
 				3D84DFD62C4513FF0084CF05 /* TRMCarouselItemCell.swift in Sources */,
 				3D374C8C2C50D15500BCD931 /* TRMHomeSegmentSectionView.swift in Sources */,

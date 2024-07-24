@@ -10,6 +10,7 @@ import UIKit
 class TRMHomeListItemCell: BaseCollectionViewCell
 {
     override func addSubviews() {
+        super.addSubviews()
         contentView.addSubview(icon)
         contentView.addSubview(nameLabel)
         contentView.addSubview(timeLabel)
@@ -19,6 +20,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
     }
     
     override func defineLayout() {
+        super.defineLayout()
         icon.snp.makeConstraints { make in
             make.top.left.right.equalTo(contentView)
             make.height.equalTo(icon.snp.width).multipliedBy(1.5)
@@ -46,6 +48,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
     }
     
     override func bindModel() {
+        super.bindModel()
         dataRelay.asDriverOnErrorJustComplete()
             .map { value -> Codable in
                 if let model = value as? Codable {
@@ -56,7 +59,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
             .drive(onNext: { [weak self] model in
                 guard let self = self else { return }
                 if let movieModel = model as? TRMMovieListItem {
-                    self.icon.kf.setImage(with: URL(string: String(format: "%@w342%@", TRMConfig.TRMApiUrl.tmebImageUrl, movieModel.posterPath ?? "")), placeholder: R.image.default_poster())
+                    self.icon.kf.setImage(with: URL(string: "\(TRMConfig.TRMApiUrl.tmebImageUrl)\(TRMPosterSize.w342.rawValue)\(movieModel.posterPath ?? "")"), placeholder: R.image.default_poster())
                     self.nameLabel.text = movieModel.title
                     self.timeLabel.text = movieModel.releaseDate
                     self.scoreLabel.text = String(format: "%.1f", movieModel.voteAverage)
@@ -64,7 +67,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
                     self.shapeLayer.strokeEnd = movieModel.voteAverage / 10.0
                     self.shapeLayer.strokeColor = self.getStrokeColor(with: movieModel.voteAverage)
                 } else if let tvModel = model as? TRMTVListItem {
-                    self.icon.kf.setImage(with: URL(string: String(format: "%@w342%@", TRMConfig.TRMApiUrl.tmebImageUrl, tvModel.posterPath ?? "")), placeholder: R.image.default_poster())
+                    self.icon.kf.setImage(with: URL(string: "\(TRMConfig.TRMApiUrl.tmebImageUrl)\(TRMPosterSize.w342.rawValue)\(tvModel.posterPath ?? "")"), placeholder: R.image.default_poster())
                     self.nameLabel.text = tvModel.name
                     self.timeLabel.text = tvModel.firstAirDate
                     self.scoreLabel.text = String(format: "%.1f", tvModel.voteAverage)

@@ -12,6 +12,7 @@ import FluentIcons
 class TRMSettingCell: BaseTableViewCell {
     
     override func addSubviews() {
+        super.addSubviews()
         self.selectionStyle = .none
         contentView.addSubview(nameLabel)
         contentView.addSubview(iconImg)
@@ -19,6 +20,7 @@ class TRMSettingCell: BaseTableViewCell {
     }
     
     override func defineLayout() {
+        super.defineLayout()
         iconImg.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(15)
             make.centerY.equalTo(contentView)
@@ -38,8 +40,8 @@ class TRMSettingCell: BaseTableViewCell {
     }
     
     override func bindModel() {
-        dataRelay
-            .asDriverOnErrorJustComplete()
+        super.bindModel()
+        dataRelay.asDriverOnErrorJustComplete()
             .map { value -> TRMSettingModel in
                 if let model = value as? TRMSettingModel {
                     return model

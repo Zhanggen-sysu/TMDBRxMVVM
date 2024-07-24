@@ -13,11 +13,13 @@ import Localize_Swift
 class TRMLanguageCell: BaseTableViewCell
 {
     override func addSubviews() {
+        super.addSubviews()
         contentView.addSubview(label)
         contentView.addSubview(selectIcon)
     }
     
     override func defineLayout() {
+        super.defineLayout()
         label.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(15)
             make.centerY.equalTo(contentView)
@@ -31,6 +33,7 @@ class TRMLanguageCell: BaseTableViewCell
     }
     
     override func bindModel() {
+        super.bindModel()
         dataRelay.asDriverOnErrorJustComplete()
             .map { value -> TRMLanguageModel in
                 if let model = value as? TRMLanguageModel {
@@ -47,6 +50,7 @@ class TRMLanguageCell: BaseTableViewCell
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
         if selected {
             selectIcon.isHidden = false
             label.textColor = .black

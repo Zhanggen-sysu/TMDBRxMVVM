@@ -20,18 +20,21 @@ class TRMLanguageVC: BaseViewController
     }
     
     override func addSubviews() {
+        super.addSubviews()
         self.title = R.string.localizable.settinglanguagE.key.localized()
         self.navigationItem.rightBarButtonItem = saveBarButtonItem
         self.view.addSubview(tableView)
     }
     
     override func defineLayout() {
+        super.defineLayout()
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(self.view)
         }
     }
     
     override func bindViewModel() {
+        super.bindViewModel()
         guard let viewModel = viewModel as? TRMLanguageVM else { return }
         
         let input = TRMLanguageVM.Input(saveTrigger: saveBarButtonItem.rx.tap.asDriverOnErrorJustComplete(),

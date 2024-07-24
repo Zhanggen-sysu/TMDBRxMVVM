@@ -33,6 +33,26 @@ struct TRMConfig {
     }
 }
 
+// w * h = 2 * 3
+enum TRMPosterSize: String {
+    case w92, w154, w185, w342, w500, w780, original
+}
+
+// w * h = 16 * 9
+enum TRMBackdropSize: String {
+    case w300, w780, w1280, original
+}
+
+// w * h = 2 * 3
+enum TRMProfileSize: String {
+    case w45, w185, h632, original
+}
+
+// w * h = 1 * 1
+enum TRMLogoSize: String {
+    case w45, w92, w154, w185, w300, w500, original
+}
+
 enum TRMMovieListType: String {
     case now_playing, popular, top_rated, upcoming
 }
