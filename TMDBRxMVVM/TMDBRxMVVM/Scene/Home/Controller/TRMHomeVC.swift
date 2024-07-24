@@ -127,8 +127,7 @@ extension TRMHomeVC: UITableViewDelegate {
             return nil
         case 1:
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: TRMHomeSegmentSectionView.self)) as! TRMHomeSegmentSectionView
-            view.dataRelay
-                .accept(())
+            view.dataRelay.accept(())
             view.segmentedControl.rx.controlEvent(.valueChanged)
                 .subscribe { [weak self] _ in
                     guard let self = self else { return }

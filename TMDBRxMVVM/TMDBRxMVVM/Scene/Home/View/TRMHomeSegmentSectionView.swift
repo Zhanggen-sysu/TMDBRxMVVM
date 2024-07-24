@@ -40,10 +40,12 @@ class TRMHomeSegmentSectionView: UITableViewHeaderFooterView {
     
     func bindModel() {
         dataRelay.asDriverOnErrorJustComplete()
-            .drive { _ in
-                segmentedControl.setTitle(R.string.localizable.homemoviE.key.localized(), forSegmentAt: 0)
-                segmentedControl.setTitle(R.string.localizable.hometV.key.localized(), forSegmentAt: 1)
+            .drive { [weak self] _ in
+                guard let self = self else { return }
+                self.segmentedControl.setTitle(R.string.localizable.homemoviE.key.localized(), forSegmentAt: 0)
+                self.segmentedControl.setTitle(R.string.localizable.hometV.key.localized(), forSegmentAt: 1)
             }
+            .disposed(by: disposeBag)
     }
     
     lazy var segmentedControl : UISegmentedControl = {
