@@ -15,7 +15,7 @@ struct TRMConfig {
     
     struct TRMApiUrl {
         static let tmdbBaseUrl = "https://api.themoviedb.org/3/"
-        static let tmebImageUrl = "https://image.tmdb.org/t/p/"
+        static let tmdbImageUrl = "https://image.tmdb.org/t/p/"
     }
     
     enum TRMApiKey {

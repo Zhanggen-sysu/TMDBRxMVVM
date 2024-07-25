@@ -14,7 +14,7 @@ import RxDataSources
 class TRMHomeVC: BaseViewController {
     
     var dataSource: RxTableViewSectionedReloadDataSource<TRMHomeSection>?
-    let segmentChangeRelay = BehaviorRelay<NSInteger>(value: 0)
+    let segmentChangeRelay = BehaviorRelay<Int>(value: 0)
     
     override func bindViewModel() {
         super.bindViewModel()

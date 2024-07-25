@@ -13,7 +13,6 @@ class TRMSettingCell: BaseTableViewCell {
     
     override func addSubviews() {
         super.addSubviews()
-        self.selectionStyle = .none
         contentView.addSubview(nameLabel)
         contentView.addSubview(iconImg)
         contentView.addSubview(arrowImg)

@@ -112,3 +112,18 @@ extension UIImage {
         return outputColor
     }
 }
+
+
+extension UIColor {
+    // 颜色色值加深/变浅
+    func deeperColor(with degree: CGFloat) -> UIColor {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        self.getRed(&r, green: &g, blue: &b, alpha: nil)
+        r = max(min(r*255+degree, 255), 0)
+        g = max(min(g*255+degree, 255), 0)
+        b = max(min(b*255+degree, 255), 0)
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+}

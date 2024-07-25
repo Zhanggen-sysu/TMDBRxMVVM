@@ -37,7 +37,7 @@ class TRMCarouselItemCell : BaseCollectionViewCell {
             }
             .drive { [weak self] model in
                 guard let self = self else { return }
-                self.imageView.kf.setImage(with: URL(string: "\(TRMConfig.TRMApiUrl.tmebImageUrl)\(TRMPosterSize.w500.rawValue)\(model.posterPath ?? "")"), placeholder: R.image.default_poster())
+                self.imageView.kf.setImage(with: URL(string: TRMHelper.getPosterUrl(with: model.posterPath ?? "", size: TRMPosterSize.w500)), placeholder: R.image.default_poster())
             }
             .disposed(by: disposeBag)
     }

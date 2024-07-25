@@ -19,7 +19,8 @@ target 'TMDBRxMVVM' do
   # UI
   pod 'RAMAnimatedTabBarController'
   pod 'SnapKit'
-  pod 'Kingfisher' 
+  pod 'Kingfisher'
+  pod "TTGTagCollectionView" 
 
   # Resource
   pod 'R.swift'

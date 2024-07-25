@@ -21,7 +21,6 @@ class TRMCarouselCell : BaseTableViewCell {
     
     override func addSubviews() {
         super.addSubviews()
-        self.selectionStyle = .none
         contentView.addSubview(collectionView)
         contentView.addSubview(pageControl)
     }

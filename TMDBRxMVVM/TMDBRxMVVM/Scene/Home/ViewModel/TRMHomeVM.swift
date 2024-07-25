@@ -16,7 +16,7 @@ class TRMHomeVM : ViewModelType {
     
     struct Input {
         let trigger: Driver<Void>
-        let segmentTrigger: Driver<NSInteger>
+        let segmentTrigger: Driver<Int>
     }
     
     struct Output {

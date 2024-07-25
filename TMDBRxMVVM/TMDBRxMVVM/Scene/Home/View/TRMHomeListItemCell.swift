@@ -59,7 +59,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
             .drive(onNext: { [weak self] model in
                 guard let self = self else { return }
                 if let movieModel = model as? TRMMovieListItem {
-                    self.icon.kf.setImage(with: URL(string: "\(TRMConfig.TRMApiUrl.tmebImageUrl)\(TRMPosterSize.w342.rawValue)\(movieModel.posterPath ?? "")"), placeholder: R.image.default_poster())
+                    self.icon.kf.setImage(with: URL(string: TRMHelper.getPosterUrl(with: movieModel.posterPath ?? "", size: TRMPosterSize.w342)), placeholder: R.image.default_poster())
                     self.nameLabel.text = movieModel.title
                     self.timeLabel.text = movieModel.releaseDate
                     self.scoreLabel.text = String(format: "%.1f", movieModel.voteAverage)
@@ -67,7 +67,7 @@ class TRMHomeListItemCell: BaseCollectionViewCell
                     self.shapeLayer.strokeEnd = movieModel.voteAverage / 10.0
                     self.shapeLayer.strokeColor = self.getStrokeColor(with: movieModel.voteAverage)
                 } else if let tvModel = model as? TRMTVListItem {
-                    self.icon.kf.setImage(with: URL(string: "\(TRMConfig.TRMApiUrl.tmebImageUrl)\(TRMPosterSize.w342.rawValue)\(tvModel.posterPath ?? "")"), placeholder: R.image.default_poster())
+                    self.icon.kf.setImage(with: URL(string: TRMHelper.getPosterUrl(with: tvModel.posterPath ?? "", size: TRMPosterSize.w342)), placeholder: R.image.default_poster())
                     self.nameLabel.text = tvModel.name
                     self.timeLabel.text = tvModel.firstAirDate
                     self.scoreLabel.text = String(format: "%.1f", tvModel.voteAverage)
@@ -85,9 +85,9 @@ class TRMHomeListItemCell: BaseCollectionViewCell
         case 0..<2.5:
             return UIColor.red.cgColor
         case 2.5..<5:
-            return UIColor.yellow.cgColor
-        case 5..<7.5:
             return UIColor.orange.cgColor
+        case 5..<7.5:
+            return UIColor.yellow.cgColor
         case 7.5...10:
             return UIColor.green.cgColor
         default:
